@@ -1,0 +1,122 @@
+@import "../variable.less";
+
+.common_footer {
+  .fs(16);
+  color: rgba(255, 255, 255, 1);
+
+  .footer_item {
+    position: relative;
+    // .h(56);
+    .l-h(56);
+    background: rgba(39, 97, 206, 1);
+
+    // border-bottom: 1px solid rgba(255,255,255,0.6);
+    .title {
+      .p-l(17);
+      .fs(18);
+    }
+
+    .more {
+      float: right;
+      .m-r(17);
+      .m-t(20);
+      .w(7);
+      .h(13);
+    }
+
+    .more_aboutus {
+      clear: both;
+      .p-b(10);
+      .p-l(17);
+      .fs(13);
+      .l-h(18);
+
+      .hl {
+        background: rgba(39, 97, 206, 1);
+        .m-t(15);
+        .m-b(15);
+
+        span {
+          display: inline-block;
+          .m-r(17);
+        }
+      }
+
+      img {
+        vertical-align: middle;
+        .w(7);
+        .h(13);
+
+      }
+    }
+
+    .footer_item_active {
+      .more {
+        transform: rotate(90deg);
+      }
+    }
+
+  }
+
+  .footer_item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    transform: scale(1, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .tell_us{
+    padding: 0;
+    .tell_us_top{
+      padding: 0;
+      .tell_us_tops{
+        display: flex;
+        align-items: center;
+        padding: 0;
+        .m-b(19);
+        img{
+          .w(18);
+          .h(18);
+          .m-r(6);
+        }
+        p{
+          .fs(15);
+          color:rgba(255,255,255,1);
+          .l-h(20);
+        }
+        a{
+          .fs(15);
+          color:rgba(255,255,255,1);
+          .l-h(20);
+        }
+      }
+      
+    }
+    .tell_us_end{
+      display: flex;
+      align-items: flex-end;
+      .er_code{
+        .w(107);
+        .h(107);
+        .m-r(19);
+      }
+      .tell_us_end_right{
+        display: flex;
+        align-items: center;
+        img{
+          .w(46);
+          .h(46);
+          .m-r(12);
+        }
+        p{
+          .fs(15);
+          color:rgba(255,255,255,1);
+          .l-h(20);
+        }
+      }
+    }
+  }
+}

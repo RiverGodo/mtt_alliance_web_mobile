@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/talent/talent_foreign_detial.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <div class="itemdetial">
+        <div class="talentdetial">
+            <p class="maintitle"><%=data.first_title%></p>
+            <div class="top_desc">
+                <% data.des.forEach(function(item){%>
+                <p><%=item%></p>
+                <% }) %>
+            </div>
+            <div class="course">
+                <% if(data.course.length > 0){%>
+                    <div class="middle_title_main">
+                        <div class="block">
+
+                        </div>
+                        <p class="middle_title">培训课程</p>
+                    </div>
+                <% }%>
+                <% data.course.forEach(function(item){%>
+                <div class="course_single">
+                    <div class="course_single_tops">
+                        <p class="course_single_tops_left"><%=item.course_title%></p>
+                        <div class="course_single_tops_right flex_center">
+                            <% item.course_flag.forEach(function(flag){%>
+                            <div class="single_blocks">
+                                <p><%=flag%></p>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="course_single_ends">
+                        <div class="course_single_ends_flex"> 
+                             <img src="/img/talentDevDetial/type1.png" alt="">
+                             <p><%=item.course_content%></p>
+                        </div>
+                        <div class="course_single_ends_flex">
+                            <img src="/img/talentDevDetial/type2.png" alt="">
+                            <p><%=item.course_form%></p>
+                        </div>
+                        <div class="course_single_ends_flex">
+                            <img src="/img/talentDevDetial/type3.png" alt="">
+                            <p><%=item.course_fit%></p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% data.project.forEach(function(item){%>
+                <div class="couse_type">
+                    <div class="middle_title_main">
+                        <div class="block">
+
+                        </div>
+                        <p class="title"><%=item.title%></p>
+                    </div>
+                    
+                    <% item.des.forEach(function(des_item){%>
+                    <p class="desc">
+                        <%=des_item%>
+                    </p>
+                    <% }) %>
+                </div>
+                <% }) %>
+            </div>
+            <div class="talent_end">
+                <% data.graphic.forEach(function(item){%>
+                <div class="talent_end_single">
+                    <img class="talent_img" src="<%=item.img_path%>" alt="">
+                    <div class="talent_end_single_right">
+                        <p class="title"><%=item.cn_name%></p>
+                        <% item.des.forEach(function(des_item){%>
+                        <p class="desc">
+                            <%=des_item%>
+                        </p>
+                        <% }) %>
+                        <div class="talent_end_single_right_bottom">
+                            <% item.features.forEach(function(features_item){%>
+                                <div class="talent_end_main">
+                                    <div class="talent_end_main_top">
+                                        <img src="/img/talentDevDetial/finger.png" alt="">
+                                        <p>特色专业：</p>
+                                    </div>
+                                    <div class="talent_end_main_bottom">
+                                        <p><%=features_item%></p>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                </div>
+            </div>
+        </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+
+
+  </script>
+</body>
+
+</html>

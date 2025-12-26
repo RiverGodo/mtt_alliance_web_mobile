@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/datum/datum.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/datum/data-center.png" alt=""> 资料中心
+      </div>
+    </header>
+    <div class="talent_main">
+      <div class="talent_main_item">
+        <div onclick="changePage('/datum/datum_text')" class="bg">
+          <img class="bg_img" src="/img/datum/bg1.png" alt="">
+          <span class="title">新冠肺炎专题&nbsp;<img class="in" src="/img/talent/in.png" alt=""></span>
+          <div class="flag">
+            <span class="num">27</span> <span class="test">项</span>
+          </div>
+        </div>
+        <p onclick="changePage('/datum/datum_text')">Clinical Treatment Protocol of Convalesc…</p>
+        <p onclick="changePage('/datum/datum_text')">Treatment Protocol for COVID-19 Severe…</p>
+        <p onclick="changePage('/datum/datum_text')">Diagnosis and Treatment Protocol for…</p>
+        <!-- <p onclick="changePage('/datum/datum_text')">Prevention and Control Techonology…</p>
+        <p onclick="changePage('/datum/datum_text')">Briefing on China's Experience on…</p> -->
+      </div>
+      <div onclick="changePage('/datum/datum_text')" class="talent_all">
+        <p>查看全部</p>
+        <img src="/img/index/more.png" alt="">
+      </div>
+      <div class="talent_main_item">
+        <div onclick="changePage('/datum/datum_pollicy')" class="bg">
+          <img class="bg_img" src="/img/datum/bg2.png" alt="">
+          <span class="title">相关政策文件&nbsp;<img class="in" src="/img/talent/in.png" alt=""></span>
+          <div class="flag"><span class="num"><%= policyList.count %></span> <span class="test">项</span></div>
+        </div>
+        <% for (let i = 0; i < 3; i++) { %>
+            <p onclick="changePage('/datum/datum_pollicy_detial/<%= policyList.policy_list[i].id %>')"><%= policyList.policy_list[i].title %></p>
+        <% } %>
+      </div>
+      <div onclick="changePage('/datum/datum_pollicy')" class="talent_all">
+        <p>查看全部</p>
+        <img src="/img/index/more.png" alt="">
+      </div>
+    </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+
+  </script>
+</body>
+
+</html>

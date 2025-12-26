@@ -1,0 +1,159 @@
+@import "../variable.less";
+
+.meeting_detail_wrapper {
+  position: relative;
+  width: 100%;
+
+  .title_wrapper {
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .fs(20);
+    .l-h(28);
+    .h(59);
+    font-weight: bold;
+    color: rgba(1, 7, 13, 1);
+
+    img {
+      .m-r(7);
+      .w(29);
+      .h(29);
+      vertical-align: middle;
+    }
+  }
+
+  .content {
+    width: 92%;
+    margin: 0 auto;
+    .p-t(17);
+    .p-b(35);
+    color: rgba(1, 7, 13, 1);
+    .l-h(28);
+
+    h1 {
+      .m-t(10);
+      .m-b(10);
+      .fs(18);
+      font-weight: bold;
+    }
+
+    h2 {
+      .m-t(10);
+      .m-b(10);
+      .fs(16);
+      font-weight: bold;
+    }
+
+    p {
+      .fs(16);
+      
+    }
+
+
+
+  }
+
+  .qa_wrapper {
+
+
+    .qa_item_list {
+      // .p-t(17);
+      .p-b(35);
+
+      a {
+        display: inline-block;
+        .p-t(14);
+        .p-b(14);
+        .fs(16);
+        color: rgba(39, 97, 206, 1);
+      }
+
+      .qa_item {
+        width: 100%;
+
+        .qa_item_title {
+          position: relative;
+          .fs(18);
+          .l-h(28);
+          .p-t(14);
+          .p-b(14);
+          .p-r(30);
+          font-weight: bold;
+
+          .blue_bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            .w(3);
+            background: rgba(39, 97, 206, 1);
+            display: none;
+          }
+
+          .sidepng {
+            position: absolute;
+            display: none;
+            .right(0);
+            .top(18);
+            .w(19);
+            .h(19);
+          }
+
+          .sidepng_close {
+            display: none;
+          }
+
+          .sidepng_show {
+            display: block;
+          }
+        }
+
+        .qa_item_des {
+          display: none;
+          .p-l(17);
+          .p-b(14);
+          ul {
+            .p-l(20);
+
+            li {
+
+              list-style: disc;
+              .fs(16);
+            }
+          }
+        }
+      }
+
+      .qa_item_active {
+        .qa_item_title {
+          .p-l(17);
+
+          .blue_bar {
+            display: block;
+          }
+
+          .sidepng_close {
+            display: block;
+          }
+
+          .sidepng_show {
+            display: none;
+          }
+        }
+
+        .line_bottom {
+          background: transparent;
+        }
+
+        .qa_item_des {
+          display: block;
+        }
+
+
+      }
+    }
+
+  }
+}

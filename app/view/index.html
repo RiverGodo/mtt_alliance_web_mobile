@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>医学人才培养联盟</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/js/rem.js"></script>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+</head>
+
+<body>
+    <% include ./component/common_header.html %>
+    <section>
+        <div class="banner">
+            <img src="/img/index/banner.png" alt="">
+        </div>
+        <div class="menu_wrapper">
+            <div class="menu_item_line">
+                <div class="menu_item" onclick="changePage('/news_list')">
+                    <img src="/img/index/news.png" alt="">
+                    <p>联盟动态</p>
+                </div>
+                <div class="menu_item" onclick="changePage('/video_list')">
+                    <img src="/img/index/video.png" alt="">
+                    <p>视频中心</p>
+                </div>
+                <div class="menu_item" onclick="changePage('/talent')">
+                    <a href="/talent">
+                        <img src="/img/index/talent.png" alt="">
+                        <p>人才培养</p>
+                    </a>
+                </div>
+                <div class="menu_item" onclick="changePage('/meeting_list/2019')">
+                    <img src="/img/index/meeting.png" alt="">
+                    <p>联盟年会</p>
+                </div>
+            </div>
+            <div class="menu_item_line">
+                <div class="menu_item" onclick="changePage('/research')">
+                    <img src="/img/index/tech.png" alt="">
+                    <p>科研创新</p>
+                </div>
+                <div class="menu_item" onclick="changePage('/characteristic')">
+                    <img src="/img/index/characteristic.png" alt="">
+                    <p>特色专栏</p>
+                </div>
+                <div onclick="changePage('/datum')" class="menu_item">
+                    <img src="/img/index/data-center.png" alt="">
+                    <p>资料中心</p>
+                </div>
+                <div class="menu_item" onclick="changePage('/alliance')">
+                    <img src="/img/index/friend.png" alt="">
+                    <p>成员伙伴</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main class="index_page">
+        <div class="plan_wrapper">
+            <a class="plan_wrapper_item" href="#">
+                <img src="/img/index/index_01.png" alt="">
+            </a>
+            <a class="plan_wrapper_item" href="https://covid19.21wecan.com/covid19en/index.shtml">
+                <img src="/img/index/index_02.png" alt="">
+            </a>
+            <a class="plan_wrapper_item" href="https://covid19consulting.alliancebrh.com/">
+                <img src="/img/index/index_03.png" alt="">
+            </a>
+        </div>
+        <div class="news_scroll_wrapper" id="news_scroll_wrapper_simple" onclick="handleShowMore()">
+            <img class="bg" src="/img/index/bg.png" alt="">
+            <div class="scroll_board">
+
+                <img class="show_png" src="/img/index/show.png" alt="">
+                <div class="hot_item_scroll">
+                    <div class="swiper-container swiper-container2">
+                        <div class="swiper-wrapper">
+                            <% for (let i = 0; i < result_data.activity_list.length; i++) { %>
+                            <div class="swiper-slide">
+                                <%if(i == 0){%>
+                                    <img class="new_png" id="new_png" src="/img/index/new.png" alt="">
+                                <%}%>
+                                <div class="hot_item_scroll_swiper_slide">
+                                    <%=result_data.activity_list[i].title%>
+                            </div>
+                        </div>
+                        <%}%>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination2"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="index_module news_scroll_wrapper_show" style="display: none;" id="news_scroll_wrapper_show">
+            <header class="index_module_header news_active_header index_module_header_header_bg" style="background-image: url(/img/index/bg-transparent.png);">
+                <div class="index_module_header_title news_active_header_title">
+                    <img src="/img/index/notice.png" alt="">&nbsp;通知公告
+                </div>
+                <div class="index_module_header_more notice_active_header_more" onclick="handleCloseMore()">
+                    <img src="/img/index/more.png" alt="">收起
+                </div>
+            </header>
+            <% for (let i = 0; i < result_data.activity_list.length; i++) { %>
+                <div class="news_scroll_wrapper_show_item"
+                    onclick="showDetail(<%= result_data.activity_list[i].id%>)">
+                    <div class="left">
+                        <header class="news_active_list_item_header">
+                            <%= result_data.activity_list[i].title%>
+                        </header>
+                        <div class="news_active_list_item_footer">
+                            <!-- <span><%= result_data.activity_list[i].type%></span> -->
+                            <span><%= helper.relativeTime(result_data.activity_list[i].create_time,'YYYY·MM·DD') %></span>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+                <div class="show_all">
+                    <p onclick="changePage('/notice_list')">查看全部 <img src="/img/index/showall.png" alt=""></p>
+                </div>
+        </div>
+        <div class="son_moudle">
+            <% for (let i = 0; i < result_data.soon_list.activity_list.length; i++) { %>
+            <div onclick="showDetail('<%= result_data.soon_list.activity_list[i].id%>')" class="son_moudle_single">
+                <% if(result_data.soon_list.activity_list[i].cover_img){ %> 
+                    <img class="son_backimg" src="<%= result_data.soon_list.activity_list[i].cover_img%> " alt="">
+                <%}%>
+                <div class="son_moudle_single_right">
+                    <div class="son_moudle_single_right_top">
+                        <p><%= result_data.soon_list.activity_list[i].title%></p>
+                    </div>
+                    <% if(helper.diffDay(result_data.soon_list.activity_list[i].begin_live_time,"minutes") > -1){ %> 
+                        <div class="son_moudle_single_right_end">
+                            <p>倒计时</p>
+                            <div class="block">
+                                <p><%= helper.diffDay(result_data.soon_list.activity_list[i].begin_live_time,"days") %></p>
+                            </div>
+                            <p>天</p>
+                            <div class="block">
+                                <p><%= helper.diffDay(result_data.soon_list.activity_list[i].begin_live_time,"hours") %></p>
+                            </div>
+                            <p>时</p>
+                            <div class="block">
+                                <p><%= helper.diffDay(result_data.soon_list.activity_list[i].begin_live_time,"minutes") %></p>
+                            </div>
+                            <p>分</p>
+                        </div>
+                    <% }else{ %> 
+                        <div class="son_moudle_single_right_end">
+                            <img src="/img/index/inline.png" alt="">
+                            <p class="origin">直播中</p>
+                        </div>
+                    <%}%>
+                </div>
+            </div>
+            <%}%>
+        </div>
+        <section class="index_module news_active">
+            <header class="index_module_header news_active_header">
+                <div class="index_module_header_title news_active_header_title">
+                    <img src="/img/index/news-big.png" alt="">&nbsp;联盟动态
+                </div>
+                <!-- <div class="index_module_header_more news_active_header_more" onclick="changePage('/news_list')">
+                    <img src="/img/index/more.png" alt="">更多
+                </div> -->
+            </header>
+            <section class="news_active_swiper">
+                <div class="swiper-container swiper-container0">
+                    <div class="swiper-wrapper">
+                        <% for (let i = 0; i < 5; i++) { %>
+                        <div class="swiper-slide">
+                            <img src="<%= result_data.hot_list[i].cover_img %>"
+                                data-id="<%= result_data.hot_list[i].id %>" alt="">
+                            <div class="title">
+                                <span class="flag"><%= result_data.hot_list[i].type %></span>&nbsp;&nbsp;
+                                <p><%= result_data.hot_list[i].title %></p>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination0"></div>
+                </div>
+                </section>
+                <section class="news_active_list">
+                    <div onclick="changePage('/news_list?language_id=1&type=2&page_size=999')" class="news_active_list_top">
+                        <div class="block"></div>
+                        <p class="title">联盟新闻</p>
+                        <p class="more">更多</p>
+                        <img src="/img/index/more.png" alt="">
+                    </div>
+                    <% for (let i = 0; i < 7; i++) { %>
+                        <% if(result_data.news_list[i].type == '联盟新闻'){ %> 
+                            <div class="news_active_list_item" data-id="<%=result_data.news_list[i].id%>">
+                                <div class="left">
+                                    <header class="news_active_list_item_header">
+                                        <%= result_data.news_list[i].title%>
+                                    </header>
+                                    <p class="news_active_list_item_footer">
+                                        <!-- <span><%= result_data.news_list[i].type%></span> -->
+                                        <span><%= result_data.news_list[i].origin%></span>
+                                        <span><%= helper.relativeTime(result_data.news_list[i].create_time,'YYYY·MM·DD') %></span>
+                                    </p>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}%>
+                </section>
+                <section  class="news_active_list">
+                    <div onclick="changePage('/news_list?language_id=1&type=1&page_size=999')" style="padding-top: 0;" class="news_active_list_top">
+                        <div class="block"></div>
+                        <p class="title">媒体报道</p>
+                        <p class="more">更多</p>
+                        <img src="/img/index/more.png" alt="">
+                    </div>
+                    <% for (let i = 0; i < 6; i++) { %>
+                        <% if(result_data.news_list[i].type == '媒体新闻'){ %> 
+                            <div class="news_active_list_item item_type2" data-id="<%=result_data.news_list[i].id%>">
+                                <div class="left">
+                                    <header class="news_active_list_item_header">
+                                        <%= result_data.news_list[i].title%>
+                                    </header>
+                                    <p class="news_active_list_item_footer">
+                                        <!-- <span><%= result_data.news_list[i].type%></span> -->
+                                        <span><%= result_data.news_list[i].origin%></span>
+                                        <span><%= helper.relativeTime(result_data.news_list[i].create_time,'YYYY·MM·DD') %></span>
+                                    </p>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}%>
+                </section>
+        </section>
+        <section class="index_module meeting">
+            <header class="index_module_header">
+                <div class="index_module_header_title" >
+                    <img src="/img/index/meeting-big.png" alt=""> &nbsp; 联盟年会
+                </div>
+                <div class="index_module_header_more" onclick="changePage('/meeting_list/2019')">
+                    <img src="/img/index/more.png" alt="">更多
+                </div>
+            </header>
+            <section class="news_active_swiper"> 
+                <div class="swiper-container swiper-container-meeting">
+                    <div class="swiper-wrapper">
+                        <% for (let i = 0; i < result_data.meeting_img_list.length; i++) { %>
+                    <div class="swiper-slide"><img style="height: 5.68rem;" src="<%= result_data.meeting_img_list[i].src %>" alt=""></div>
+                    <%}%>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <p class="meeting_title">2019年会顺利召开——联盟成立大会&人文交流国际研讨会</p>
+            </section>
+            
+        </section>
+        <section class="index_module">
+            <header class="index_module_header">
+                <div class="index_module_header_title">
+                    <img src="/img/index/video-big.png" alt="">&nbsp;精选视频
+                </div>
+                <div class="index_module_header_more" onclick="changePage('/video_list')">
+                    <img src="/img/index/more.png" alt="">更多
+                </div>
+            </header>
+            <section class="index_video">
+                <% for (let i = 0; i < result_data.video_list.length; i++) { %>
+                    <div class="video_item" data-id="<%=result_data.video_list[i].id%>">
+                        <div class="cover">
+                            <img class="cover_img" src="<%=result_data.video_list[i].cover_img%>" alt="">
+                            <img class="start" src="/img/index/play.png" alt="">
+                        </div>
+                        <div class="des">
+                            <span><%=result_data.video_list[i].language_id%></span>
+                            <%=result_data.video_list[i].title%>
+                        </div>
+                    </div>
+                    <%}%>
+            </section>
+        </section>
+    </main>
+    <% include ./component/common_side_menu.html %>
+    <% include ./component/common_footer.html %>
+    <% include ./component/common_copyright.html %>
+    <% include ./component/common_js.html %>
+
+
+</body>
+<script src="/js/swiper.min.js"></script>
+<script>
+    var mySwiper2 = new Swiper('.swiper-container2', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        direction: 'vertical',
+        observer: true,
+        observeParents: true,
+        on: {
+            init: function () {
+                this.params.width = window.innerWidth;
+                this.params.height = window.innerWidth / 375 * 62;
+                this.update();
+            },
+            resize: function () {
+                this.params.width = window.innerWidth;
+                this.params.height = window.innerWidth / 375 * 62;
+                this.update();
+            },
+            slideChange: function () {
+                if (this.activeIndex == 1) {
+                    document.getElementById("new_png").style.display = "block"
+                } else {
+                    document.getElementById("new_png").style.display = "none"
+                }
+            }
+        },
+    })
+    
+    var mySwiper0 = new Swiper('.swiper-container0', {
+        autoplay: true,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+        },
+        on: {
+            init: function () {
+                this.params.width = window.innerWidth;
+                this.update();
+            },
+            resize: function () {
+                this.params.width = window.innerWidth;
+                this.update();
+            },
+            tap: function (event) {
+                var swiper0_id = event.target.dataset.id
+                if (swiper0_id) {
+                    location.href = "/news_list/" + swiper0_id
+                }
+
+            },
+        },
+    })
+    var mySwiper1 = new Swiper('.swiper-container-meeting', {
+        autoplay: true,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+        },
+        on: {
+            init: function () {
+                this.params.width = window.innerWidth;
+                this.update();
+            },
+            tap: function (event) {
+                location.href = "/meeting_list/2019"
+            },
+            resize: function () {
+                this.params.width = window.innerWidth;
+                this.update();
+            },
+        },
+    })
+
+    // 展开更多
+    function handleShowMore() {
+        mySwiper2.autoplay.stop();
+        document.getElementById("news_scroll_wrapper_simple").style.display = "none"
+        document.getElementById("news_scroll_wrapper_show").style.display = "block"
+    }
+
+    function handleCloseMore() {
+        document.getElementById("news_scroll_wrapper_simple").style.display = "block"
+        document.getElementById("news_scroll_wrapper_show").style.display = "none"
+        mySwiper2.update()
+        mySwiper2.autoplay.start();
+    }
+    // 跳转页面
+    function changePage(path) {
+        location.href = path
+    }
+    // 跳转活动详情
+    function showDetail(id) {
+        location.href = "/notice_list/" + id
+    }
+
+    window.onload = function () {
+        document.documentElement.scrollTop = 0
+        var height_header = document.getElementById("common_header").offsetHeight
+        var height_client = document.documentElement.clientHeight
+        document.getElementById("side_menu_wrapper").style.height = height_client - height_header + 20 + 'px'
+
+        // 给新闻绑定点击事件
+        var news_active_list = document.querySelectorAll(".news_active_list_item")
+        for (var i = 0; i < news_active_list.length; i++) {
+            news_active_list[i].onclick = function (e) {
+                location.href = "/news_list/" + e.currentTarget.dataset.id
+            }
+        }
+        // 给视频绑定点击事件
+        var news_active_list = document.querySelectorAll(".video_item")
+        for (var i = 0; i < news_active_list.length; i++) {
+            news_active_list[i].onclick = function (e) {
+                location.href = "/video_list/" + e.currentTarget.dataset.id
+            }
+        }
+    }
+
+    document.getElementById('backmenu').style.visibility = "hidden"
+</script>
+
+</html>

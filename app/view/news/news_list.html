@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/news/news_list.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="news_list_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/news/news-big.png" alt=""> &nbsp; <p style="font-weight: 500;" id="allnew">全部新闻</p>
+      </div>
+      <div class="index_module_header_more notice_active_header_more" id="notice_active_header_more"
+        onclick="handleCloseMore()">
+        <img id="more2" src="/img/index/more2.png" alt=""> <img id="more3" src="/img/index/more3.png" alt=""> <p id="alltypes">分类</p>
+      </div>
+      <section class="select_type_wrapper" id="select_type_mask">
+        <div class="select">
+          <div class="select_item" id="selectype0" data-type="0">全部新闻</div>
+          <div class="select_item" id="selectype2" data-type="2">联盟新闻</div>
+          <div class="select_item" id="selectype1" data-type="1">媒体报道</div>
+        </div>
+      </section>
+    </header>
+    <% for (let i = 0; i < newsList.length; i++) { %>
+    <div class="news_scroll_wrapper_show_item" onclick="showDetail(<%= newsList[i].id%>)">
+      <header class="news_active_list_item_header">
+        <%= newsList[i].title%>
+      </header>
+      <div class="content">
+        <% if(newsList[i].cover_img) { %>
+        <div class="left">
+          <img src="<%=newsList[i].cover_img%>" alt="">
+        </div>
+        <% } %>
+        <div class="right">
+          <%=newsList[i].describe%>
+        </div>
+      </div>
+      <div class="news_active_list_item_footer">
+        <span><%= newsList[i].type%></span>
+        <span><%= newsList[i].origin%></span>
+        <span style="font-family:Helvetica;"><%= helper.relativeTime(newsList[i].create_time,'YYYY·MM·DD') %></span>
+      </div>
+    </div>
+    <%}%>
+  </section>
+  <% include ../component/common_side_menu.html %>
+    <% include ../component/common_footer.html %>
+    <% include ../component/common_copyright.html %>
+    <% include ../component/common_js.html %>
+    <script>
+      var select_item_list = document.querySelectorAll(".select_item")
+      var select_item_active_index = getQueryString("type") || 0
+      // select_item_list[select_item_active_index].classList.add("select_item_active")
+      document.getElementById('selectype'+select_item_active_index).className = "select_item select_item_active"
+      if (select_item_active_index == 2) {
+        // document.getElementById('allnew').innerHTML = "联盟新闻"
+        document.getElementById('alltypes').innerHTML = "联盟"
+      }else if(select_item_active_index == 1){
+        // document.getElementById('allnew').innerHTML = "媒体报道"
+        document.getElementById('alltypes').innerHTML = "媒体"
+      }else{
+        // document.getElementById('allnew').innerHTML = "全部新闻"
+        document.getElementById('alltypes').innerHTML = "全部"
+      }
+      for (var i = select_item_list.length - 1; i >= 0; i--) {
+        select_item_list[i].onclick = function (e) {
+          var select_item_type = e.target.dataset.type
+          location.href = '/news_list?language_id=1&type=' + select_item_type + '&page_size=999'
+        }
+      }
+
+      function handleCloseMore() {
+        var select_type_mask_node_classlist = document.getElementById("select_type_mask").classList
+        var arrow_classlist = document.getElementById("notice_active_header_more").classList
+        arrow_classlist.toggle("index_module_header_more_active")
+        select_type_mask_node_classlist.toggle("select_type_wrapper_active")
+        if (select_type_mask_node_classlist.length == 1) {
+          document.getElementById('alltypes').style.color = "#6f859c"
+          move()
+        }else{
+          document.getElementById('alltypes').style.color = "#2761CE"
+          stop()
+        }
+      }
+
+      function showDetail(id) {
+        location.href = "/news_list/" + id
+      }
+
+      //禁止页面滑动
+      function stop(){
+          var mo=function(e){passive: false ;};
+          document.body.style.overflow='hidden';
+          document.addEventListener("touchmove",mo,false);//禁止页面滑动
+      }
+      //取消滚动限制
+      function move(){
+          var mo=function(e){passive: false };
+          document.body.style.overflow='';//出现滚动条
+          document.removeEventListener("touchmove",mo,false);
+      }
+    </script>
+</body>
+
+</html>

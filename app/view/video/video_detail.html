@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/video/video_detail.css">
+  <script src="/js/rem.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <main class="video_detail_wrapper">
+    <header class="title">
+      <h1>
+        <%=videoDetail.title%>
+      </h1>
+    </header>
+    <%if(videoDetail.type === 2){%>
+    <section class="live_wrapper_bg">
+      <p> <%=videoDetail.language_id%> <%= helper.relativeTime(videoDetail.create_time,'YYYY·MM·DD') %></p>
+      <img src="<%=videoDetail.cover_img%>" alt="">
+      <a href="<%=videoDetail.href%>"><img class="play" src="/img/video/play.png" alt=""></a>
+    </section>
+    <%}%>
+    <%if(videoDetail.type === 1){%>
+    <section class="live_wrapper_bg">
+      <video src="<%=videoDetail.url%>"></video>
+    </section>
+    <%}%>
+    <%if(!videoDetail.body.describe.hidden){%>
+    <section class="meeting_bg_wrapper">
+      <h2 class="title">活动简介</h2>
+      <div class="meeting_bg_content" id="meeting_bg_content">
+        <%-videoDetail.body.describe.data%>
+        <div id="task" class="meeting_bg_content_mask"></div>
+      </div>
+      <div id="metbtn" class="meeting_bg_content_btn">
+        <div class="to_close" id="to_close" onclick="showAll('to_close','to_show')">
+          <span>显示全部</span> <img src="/img/notice/show.png" alt="">
+        </div>
+        <div class="to_show" id="to_show" onclick="showAll('to_show','to_close')">
+          <span>收起</span> <img src="/img/notice/show.png" alt="">
+        </div>
+      </div>
+
+    </section>
+    <%}%>
+    <%if(videoDetail.guest_list.length > 0){%>
+    <section class="meeting_guest_wrapper">
+      <h2 class="title">会议嘉宾</h2>
+      <% for (let i = 0; i < videoDetail.guest_list.length; i++) { %>
+      <div class="guest_item">
+        <div class="head_img">
+          <img src="<%=videoDetail.guest_list[i].head_img%>" alt="">
+        </div>
+        <div class="person">
+          <p class="name"><%=videoDetail.guest_list[i].name%></p>
+          <p class="des"><%=videoDetail.guest_list[i].short_describe%></p>
+        </div>
+        <div class="arrow">
+          <img src="/img/index/more.png" alt="">
+        </div>
+      </div>
+      <%}%>
+    </section>
+    <%}%>
+      <%if(!videoDetail.body.schedule.hidden){%>
+      <section class="meeting_schdule_wrapper">
+        <h2 style="border: none;" class="title">会议日程</h2>
+        <div class="all_time">
+            <p><%= helper.relativeTime(videoDetail.body.schedule.begin_live_time,'YYYY年MM月DD日') %> &nbsp;<%= helper.relativeTime(videoDetail.body.schedule.begin_live_time,'HH:mm') %>至<%= helper.relativeTime(videoDetail.body.schedule.end_live_time,'HH:mm') %></p>
+        </div>
+        <% for (let i = 0; i < videoDetail.body.schedule.data.length; i++) { %>
+        <div class="meeting_schdule_item " onclick="show_meeting_schdule(this)">
+          <p>
+            <%if(videoDetail.body.schedule.data[i]["时间"].begin){%><%-videoDetail.body.schedule.data[i]["时间"].begin%>-<%}%><%-videoDetail.body.schedule.data[i]["时间"].end%>&nbsp;
+            <%-videoDetail.body.schedule.data[i]["主题"]%>
+          </p>
+          <p class="person">发言人：<%=videoDetail.body.schedule.data[i]["发言人"]%></p>
+          <img class="img" src="/img/index/more.png" alt="">
+        </div>
+        <%}%>
+    </section>
+    <%}%>
+        <%if(!videoDetail.body.organizer.hidden){%>
+        <section class="meeting_organizer_wrapper">
+          <h2 class="title">主办单位</h2>
+          <%-videoDetail.body.organizer.data%>
+        </section>
+        <%}%>
+  </main>
+  <% include ../component/common_side_menu.html %>
+        <% include ../component/common_copyright.html %>
+        <% include ../component/common_js.html %>
+        <script>
+          window.onload = function () {
+            var meeting_bg_content_node = document.getElementById("meeting_bg_content")
+            var meeting_bg_content_height = meeting_bg_content_node.offsetHeight
+            if (window.screen.availHeight/meeting_bg_content_height > 5.9) {
+              document.getElementById('metbtn').style.display = "none"
+              document.getElementById('task').style.display = "none"
+            }else{
+              if (meeting_bg_content_height > 150) {
+                meeting_bg_content_node.classList.add("meeting_bg_content_close")
+              }
+            }
+          }
+
+          function show_meeting_schdule(node) {
+            node.classList.toggle("meeting_schdule_item_active")
+          }
+
+          function showAll(id1, id2) {
+            document.getElementById(id1).style.display = "none"
+            document.getElementById(id2).style.display = "block"
+            var meeting_bg_content_classlist = document.getElementById("meeting_bg_content").classList
+            meeting_bg_content_classlist.toggle("meeting_bg_content_show")
+          }
+        </script>
+</body>
+
+</html>

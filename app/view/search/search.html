@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/search/search.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <section class="search">
+        <div class="search_top">
+            <img src="/img/search/logo.png" alt="">
+            <p class="title">“一带一路”医学人才培养联盟</p>
+            <p class="desc">Belt and Road Health Professionals Development Alliance</p>
+        </div>
+        <div class="search_middle">
+            <div class="search_middle_left">
+                <input id="text_input" type="text" placeholder="请输入内容">
+            </div>
+            <div onclick="search()" class="search_middle_right">
+                <img src="/img/search/search.png" alt="">
+            </div>
+        </div>
+        <div class="search_end">
+            <div class="search_end_top">
+                <img src="/img/search/hot.png" alt="">
+                <p>热门搜索：</p>
+            </div>
+            <div class="search_end_end">
+                <p onclick="changePage('/search/search_detial?text=卫生人力资源')">卫生人力资源</p>
+                <p onclick="changePage('/search/search_detial?text=一带一路')">一带一路</p>
+                <p onclick="changePage('/search/search_detial?text=人才培养联盟')">人才培养联盟</p>
+                <p onclick="changePage('/search/search_detial?text=医疗卫生')">医疗卫生</p>
+                <p onclick="changePage('/search/search_detial?text=职业培训')">职业培训</p>
+                <p onclick="changePage('/search/search_detial?text=国际合作和交流')">国际合作和交流</p>
+                <p onclick="changePage('/search/search_detial?text=新冠肺炎病毒')">新冠肺炎病毒</p>
+            </div>
+        </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_js.html %>
+</body>
+<script>
+    function search() {
+        if (document.getElementById('text_input').value) {
+            window.location.href = "/search/search_detial?text="+ document.getElementById('text_input').value +"&type=0"
+        }else{
+            alert('请输入搜索内容！')
+        }     
+    }
+</script>
+</html>

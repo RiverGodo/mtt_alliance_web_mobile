@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/notice/notice_detail.css">
+  <script src="/js/rem.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <main class="notice_detail_wrapper">
+    <header class="title">
+      <h1>
+        <%=activityDetail.title%>
+      </h1>
+    </header>
+    <%if(!activityDetail.body_json.background.hidden){%>
+    <section class="live_wrapper_bg">
+      <p> <%=activityDetail.type%> <%= helper.relativeTime(activityDetail.create_time,'YYYY·MM·DD') %></p>
+      <div class="img_wrapper">
+        <img src="<%=activityDetail.body_json.banner.url%>" alt="">
+        <%if(activityDetail.body_json.background.live_url){%>
+          <img onclick="handleUrl('<%=helper.judgeTime(activityDetail.body_json.background.begin_live_time,activityDetail.body_json.background.end_live_time,activityDetail.body_json.background.live_url)%>')" class="play" src="/img/notice/play.png" alt="">
+        <%}%>
+      </div>
+    </section>
+    <%}%>
+        <section class="meeting_bg_wrapper">
+          <h2 class="title">会议背景</h2>
+          <div class="meeting_bg_content" id="meeting_bg_content">
+            <%-activityDetail.body_json.background.data%>
+            <div class="meeting_bg_content_mask"></div>
+          </div>
+          <div class="meeting_bg_content_btn">
+            <div class="to_close" id="to_close" onclick="showAll('to_close','to_show')">
+              <span>显示全部</span> <img src="/img/notice/show.png" alt="">
+            </div>
+            <div class="to_show" id="to_show" onclick="showAll('to_show','to_close')">
+              <span>收起</span> <img src="/img/notice/show.png" alt="">
+            </div>
+          </div>
+        </section>
+        <section class="live_wrapper">
+          <img class="tv" src="/img/notice/live.png" alt="">
+          <div class="des">
+            <p onclick="handleUrl('<%=helper.judgeTime(activityDetail.body_json.background.begin_live_time,activityDetail.body_json.background.end_live_time,activityDetail.body_json.background.live_url)%>')" class="watch">观看直播 >></p>
+            <p class="time"><%= helper.relativeTime(activityDetail.body_json.background.begin_live_time,'YYYY年MM月DD日') %>
+              <%= helper.relativeTime(activityDetail.body_json.background.begin_live_time,"HH:mm") %>至<%= helper.relativeTime(activityDetail.body_json.background.end_live_time,"HH:mm") %>
+            </p>
+          </div>
+        </section>
+        <section class="meeting_guest_wrapper">
+          <h2 class="title">会议嘉宾</h2>
+          <% for (let i = 0; i < activityDetail.guest_list.length; i++) { %>
+          <div class="guest_item">
+            <div class="head_img">
+              <img src="<%=activityDetail.guest_list[i].head_img%>" alt="">
+            </div>
+            <div class="person">
+              <p class="name"><%=activityDetail.guest_list[i].name%></p>
+              <p class="des"><%=activityDetail.guest_list[i].short_describe%></p>
+            </div>
+            <div class="arrow">
+              <img src="/img/index/more.png" alt="">
+            </div>
+          </div>
+          <%}%>
+    </section>
+    <section class="meeting_schdule_wrapper">
+      <h2 class="title">会议日程</h2>
+      <% for (let i = 0; i < activityDetail.body_json.schedule.data.length; i++) { %>
+          <div class="meeting_schdule_item " onclick="show_meeting_schdule(this)">
+            <p>
+              <%if(activityDetail.body_json.schedule.data[i]["时间"].begin){%><%-activityDetail.body_json.schedule.data[i]["时间"].begin%>-<%}%><%-activityDetail.body_json.schedule.data[i]["时间"].end%>&nbsp;
+              <%-activityDetail.body_json.schedule.data[i]["主题"]%>
+            </p>
+            <p class="person">发言人：<%=activityDetail.body_json.schedule.data[i]["发言人"]%></p>
+            <img class="img" src="/img/index/more.png" alt="">
+          </div>
+          <%}%>
+    </section>
+    <section class="meeting_tel_wrapper">
+      <h2 class="title">会议联系</h2>
+      <%-activityDetail.body_json.contact.data%>
+    </section>
+        <!-- <section class="meeting_software_wrapper">
+          <h2 class="title">会议软件</h2>
+          <div class="software">
+            <img src="/img/meeting/software.png" alt="">
+            <p>
+              观看会议直播，请下载“好视通云会议”，通过电脑或手机登录，便可进行实时音视频沟通。
+            </p>
+            <span>
+              立即下载
+            </span>
+          </div>
+        </section> -->
+  </main>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+    window.onload = function () {
+      var meeting_bg_content_node = document.getElementById("meeting_bg_content")
+      var meeting_bg_content_height = meeting_bg_content_node.offsetHeight
+      if (window.screen.availHeight/meeting_bg_content_height > 5.9) {
+        document.getElementById('metbtn').style.display = "none"
+        document.getElementById('task').style.display = "none"
+      }else{
+        if (meeting_bg_content_height > 150) {
+          meeting_bg_content_node.classList.add("meeting_bg_content_close")
+        }
+      }
+    }
+
+    function show_meeting_schdule(node) {
+      node.classList.toggle("meeting_schdule_item_active")
+    }
+
+    function showAll(id1, id2) {
+      document.getElementById(id1).style.display = "none"
+      document.getElementById(id2).style.display = "block"
+      var meeting_bg_content_classlist = document.getElementById("meeting_bg_content").classList
+      meeting_bg_content_classlist.toggle("meeting_bg_content_show")
+    }
+
+    function handleUrl(url) {
+      if (url == 2) {
+        alert('直播已结束')
+      }else if(url == 1){
+        alert('直播未开始')
+      }else{
+        window.open(url)
+      }
+    }
+  </script>
+</body>
+
+</html>

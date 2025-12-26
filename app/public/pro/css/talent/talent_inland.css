@@ -1,0 +1,59 @@
+.inland .inland_top {
+  padding-bottom: 0.3519rem;
+  width: 100%;
+  margin-top: 0.463rem;
+  position: relative;
+}
+.inland .inland_top p {
+  font-size: 0.537rem;
+  font-weight: 500;
+  color: #01070d;
+  line-height: 0.75rem;
+  text-align: center;
+}
+.inland .inland_top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #CED8E2;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+}
+.inland .inland_main {
+  width: 9.2593rem;
+  margin: 0 auto;
+  margin-bottom: 0.9259rem;
+}
+.inland .inland_main .inland_single {
+  width: 100%;
+  height: 5.5556rem;
+  background: #ffffff;
+  -webkit-box-shadow: 0rem 0.0185rem 0.0926rem 0rem rgba(29, 41, 41, 0.08);
+  box-shadow: 0rem 0.0185rem 0.0926rem 0rem rgba(29, 41, 41, 0.08);
+  -webkit-border-radius: 0 0 0.0926rem 0.0926rem;
+  border-radius: 0 0 0.0926rem 0.0926rem;
+  margin-top: 0.463rem;
+  margin-bottom: 0.463rem;
+}
+.inland .inland_main .inland_single img {
+  width: 100%;
+  height: 4.1667rem;
+}
+.inland .inland_main .inland_single p {
+  font-size: 0.4259rem;
+  font-weight: 400;
+  color: #01070d;
+  line-height: 0.6481rem;
+  width: 8.5185rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-top: 0.2778rem;
+  margin-bottom: 0.3704rem;
+}

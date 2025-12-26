@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/alliance/alliance.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/jquery.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <main class="meeting_detail_wrapper" id="meeting_detail_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/alliance/member.png" alt=""> 成员与伙伴
+      </div>
+    </header>
+    <!-- <div class="mask"></div> -->
+    <div class="line"></div>
+    <div id="nav" class="scroll_hor">
+      <div class="scroll_hor_item" data-index="0">
+        联盟成员
+      </div>
+      <div class="scroll_hor_item" data-index="1">
+        合作伙伴
+      </div>
+      <div class="scroll_hor_item scroll_hor_item_disable" data-index="-1">
+        专家委员会
+      </div>
+      <div class="scroll_hor_item" data-index="3">
+        加入联盟
+      </div>
+      <!-- <div class="scroll_hor_item " data-index="3">
+        &nbsp;
+      </div>
+      <div class="scroll_hor_item" data-index="3">
+        &nbsp;
+      </div> -->
+    </div>
+    <div class="line"></div>
+    <div class="center">
+      <section class="meeting_item meeting_item_active">
+        <div class="alliance_member_wrapper">
+          <%for(let i =0; i < alliance.alliance_member_list.length;i++){%>
+          <%if(alliance.alliance_member_list[i].type != 5){%>
+          <div class="alliance_member_item">
+            <div class="title">
+              <%=alliance.alliance_member_list[i].type_name%>
+            </div>
+            <div class="members">
+              <%for(let j =0; j < alliance.alliance_member_list[i].member.length;j++){%>
+              <div onclick="changePage('<%=alliance.alliance_member_list[i].member[j].url%>')" class="member">
+                <div class="member_logo">
+                  <%if(alliance.alliance_member_list[i].member[j].logo){%>
+                    <img class="branwdo" src="/img/alliance/defaultheader.png"
+                    data-src="<%=alliance.alliance_member_list[i].member[j].logo%>" alt="">
+                  <%}else{%>
+                  <img src="/img/alliance/defaultheader.png" alt="">
+                  <%}%>
+                </div>
+                <p><%=alliance.alliance_member_list[i].member[j].company_name%></p>
+                </div>
+                <%}%>
+            </div>
+          </div>
+          <%}%>
+                <%}%>
+              </div>
+              <!-- <div class="scroll_top" onclick="handleScrollTop()">
+                <img src="/img/alliance/top.png" alt="">
+              </div> -->
+      </section>
+      <section class="meeting_item ">
+        <div class="alliance_member_wrapper">
+          <%for(let i =0; i < alliance.alliance_member_list.length;i++){%>
+                <%if(alliance.alliance_member_list[i].type == 5){%>
+                <div class="alliance_member_item">
+                  <div class="title">
+                    <%=alliance.alliance_member_list[i].type_name%>
+                  </div>
+                  <div class="members">
+                    <%for(let j =0; j < alliance.alliance_member_list[i].member.length;j++){%>
+                    <div onclick="changePage('<%=alliance.alliance_member_list[i].member[j].url%>')" class="member">
+                      <div class="member_logo">
+                        <%if(alliance.alliance_member_list[i].member[j].logo){%>
+                          <img class="branwdo" src="/img/alliance/defaultheader.png"
+                          data-src="<%=alliance.alliance_member_list[i].member[j].logo%>" alt="">
+                        <%}else{%>
+                        <img src="/img/alliance/defaultheader.png" alt="">
+                        <%}%>
+                </div>
+                <p><%=alliance.alliance_member_list[i].member[j].company_name%></p>
+                      </div>
+                      <%}%>
+            </div>
+          </div>
+          <%}%>
+                      <%}%>
+              </div>
+              <!-- <div class="scroll_top" onclick="handleScrollTop()">
+                <img src="/img/alliance/top.png" alt="">
+              </div> -->
+      </section>
+      <section class="meeting_item ">
+        3
+      </section>
+      <section class="meeting_item">
+       <div class="join_wrapper">
+        <div class="step_img">
+          <img src="/img/alliance/step.png" alt="">
+        </div>
+        <p class="title">
+          在线申请
+        </p>
+        <div class="line line92"></div>
+        <form name="myForm" action="" method="post">
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 单位名称：
+            </div>
+            <div class="text">
+              <input type="text" name="company_name" placeholder="请输入单位名称">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 单位性质：
+            </div>
+            <div class="text">
+              <input type="text" name="company_character" placeholder="请输入单位性质">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 成立时间：
+            </div>
+            <img class="icon" src="/img/alliance/date.png" alt="">
+            <div class="text">
+              <input type="text" name="establish_time" disabled id="date-group1-1" placeholder="请选择成立时间">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 单位业务：
+            </div>
+            <div class="text">
+              <input type="text" name="company_service" placeholder="请输入主要页面内容">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 联 系 人：
+            </div>
+            <div class="text">
+              <input type="text" name="liaison" placeholder="请输入真实姓名">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 职 务：
+            </div>
+            <div class="text">
+              <input type="text" name="duties" placeholder="请输入职务名称">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 联系手机号：
+            </div>
+            <div class="text">
+              <input type="tel" name="phone" placeholder="请输入常用手机号">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 联系邮箱：
+            </div>
+            <div class="text">
+              <input type="email" name="email" placeholder="请输入常用邮箱">
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 单位国际合作业务开展主要情况：
+            </div>
+            <div class="text">
+              <textarea  rows="5" name="service_situation"   placeholder="请输入业务情况"></textarea>
+            </div>
+          </div>
+          <div class="form_item">
+            <div class="field field_small">
+              <span class="requires">*</span> 
+              <span >请上传Word/Excel/PPT格式文档，大小不超过1MB</span>
+              
+            </div>
+  
+            <div class="slide-wrapper slide-wrapper-hidden" id="slide-wrapper">
+              <div class="slide-scroll animate-slide-start">
+                <div class="slide-content" >
+                  <!-- <div> -->
+                    <img class="icon0" src="/img/alliance/doc.png" alt="">
+                    <span id="textfield"></span>
+                  <!-- </div> -->
+                </div>
+                <div class="slide-content-button" onclick="handleHiddenSlideWrapper()">
+                  <span class="button">删除</span>
+                </div>
+              </div>
+            </div>
+  
+            <input id="file" onchange="upLoad(this)" type="file" style="display: none;">
+            <!-- <input type="file" id="file" style="display: none;" /> -->
+            <div class="btn" id="upload_btn" onclick="uploadFile()">
+              上传附件
+            </div>
+           
+            
+          </div>
+          <div class="form_item">
+            <div class="field">
+              <span class="requires">*</span> 
+              <span >验证码</span>
+              
+            </div>
+           <div class="code_wrapper">
+            <div id="newcode" onclick="handleGetCode()">
+              <%-alliance.svg_code%>
+                    </div>
+                    <div class="code_input"><input type="text" name="code" placeholder="请输入验证码"></div>
+                  </div>
+                  <div class="submit" onclick="handleSubmit()">
+                    提 交
+                  </div>
+                  <p class="title">
+                    离线申请
+                  </p>
+                  <div class="line line92"></div>
+                  <div class="offline">
+                    <a href="http://jhyl-static-file.oss-cn-hangzhou.aliyuncs.com/mtta_web_test/doc/member.docx">
+                      <img src="/img/alliance/doc.png" alt=""></a>
+                    <a href="http://jhyl-static-file.oss-cn-hangzhou.aliyuncs.com/mtta_web_test/doc/member.docx">
+                      “一带一路：医学人才培养联盟成员单位申请表
+                    </a>
+                  </div>
+                </div>
+                <input type="reset" name="reset" style="display: none;" />
+  
+                </form>
+  
+      </section>
+    </div>
+    
+    <!-- <div id="app">
+      <div id="date-group1-1"></div>
+    </div> -->
+  </main>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+
+
+  <script src="/js/lazyload.js"></script>
+  <script>
+    function remove_class(list, rev_class) {
+      for (var i = 0; i < list.length; i++) {
+        list[i].classList.remove(rev_class)
+      }
+    }
+    var bread_list = document.querySelectorAll(".scroll_hor_item")
+    var meeting_item_list = document.querySelectorAll(".meeting_item")
+    var day_item_title_list = document.querySelectorAll(".day_item_title")
+    remove_class(bread_list, "scroll_hor_item_active")
+    remove_class(meeting_item_list, "meeting_item_active")
+    remove_class(day_item_title_list, "day_item_title_active")
+    bread_list[<%=type%>].classList.add("scroll_hor_item_active")
+    meeting_item_list[<%=type%>].classList.add("meeting_item_active")
+
+    for (var i = 0; i < day_item_title_list.length; i++) {
+      day_item_title_list[i].onclick = function (e) {
+        var node_classList = e.currentTarget.classList
+        var node = e.currentTarget
+        node.nextElementSibling.classList.add("content_hidden")
+        if (!node_classList.contains("day_item_title_active")) {
+          node_classList.add("day_item_title_active")
+          node.nextElementSibling.classList.add("content_hidden")
+        } else {
+          node_classList.remove("day_item_title_active")
+          node.nextElementSibling.classList.remove("content_hidden")
+        }
+
+      }
+    }
+
+    for (var i = 0; i < bread_list.length; i++) {
+      bread_list[i].onclick = function (e) {
+        var meeting_item_list_index = +e.currentTarget.dataset.index
+        if (meeting_item_list_index < 0) {
+          return
+        }
+        remove_class(bread_list, "scroll_hor_item_active")
+        remove_class(meeting_item_list, "meeting_item_active")
+        bread_list[meeting_item_list_index].classList.add("scroll_hor_item_active")
+        meeting_item_list[meeting_item_list_index].classList.add("meeting_item_active")
+        setHeight()
+      }
+    }
+
+    function setHeight() {
+      document.getElementById("meeting_detail_wrapper").style.height = 'auto'
+      var client_height = document.documentElement.clientHeight
+      var meeting_detail_wrapper_height = document.getElementById("meeting_detail_wrapper")
+        .offsetHeight
+      var common_header_height = document.getElementById("common_header").offsetHeight
+      var common_copyright_height = document.getElementById("common_copyright").offsetHeight
+      if (client_height > meeting_detail_wrapper_height + common_header_height +
+        common_copyright_height) {
+        document.getElementById("meeting_detail_wrapper").style.height =
+          client_height -
+          common_header_height -
+          common_copyright_height + 'px'
+      } else {
+        document.getElementById("meeting_detail_wrapper").style.height = 'auto'
+      }
+    }
+
+    function handleScrollTop() {
+      if (document.documentElement.scrollTop) {
+        document.documentElement.scrollTop = 0
+      } else {
+        document.body.scrollTop = 0
+      }
+
+    }
+
+    function uploadFile() {
+      document.getElementById("file").click()
+    }
+    var fileSize = 0
+    var fileType = ""
+    var fileName = ""
+    var ossFileName = ""
+    var ossHost = "http://jhyl-static-file.oss-cn-hangzhou.aliyuncs.com/"
+    var percentage = 0
+    var fileUrl = "213"
+    var uid = document.cookie.uid
+
+    function upLoad(event) {
+      fileSize = event.files[0].size / 1024
+      fileType = event.files[0].type
+      if (fileSize > 1024) {
+        alert("文件过大")
+        return;
+      }
+      fileName = event.value.substring(
+        event.value.lastIndexOf("\\") + 1,
+        event.value.length
+      );
+      console.log(fileName);
+      if (event.files.length) {
+        document.getElementById('textfield').innerHTML = event.files[0].name
+      } else {
+        document.getElementById('textfield').innerHTML = "未选择文件"
+      }
+      handleGetassignKey(event.files[0])
+    }
+
+
+    function handleGetassignKey(fileItem) {
+      var date = new Date();
+      date = date.toGMTString();
+      $.post('/getSign', {
+        content_type: fileItem.type,
+        date: date,
+        bucket: "jhyl-static-file",
+        dir: "mtta_web_test/join_alliance_form",
+        filename: fileItem.name,
+        type: "POST"
+      }, function (res) {
+        if (res.SignList.res_code == 1) {
+          ossFileName = res.SignList.msg.filename;
+
+          handleUploadFile(res.SignList.msg, encodeURI(ossHost), fileItem);
+        } else {
+          alert("上传失败")
+          console.log(res);
+        }
+      })
+      // axios.post('/getSign', {
+      //   content_type: fileItem.type,
+      //   date: date,
+      //   bucket: "jhyl-static-file",
+      //   dir: "mtta_web_test/join_alliance_form",
+      //   filename: fileItem.name,
+      //   type: "POST"
+      // }).then(function (res) {
+      //   if (res.data.SignList.res_code == 1) {
+      //     ossFileName = res.data.SignList.msg.filename;
+      //     const formData = new FormData();
+      //     formData.append("key", res.data.SignList.msg.filename);
+      //     formData.append("OSSAccessKeyId", res.data.SignList.msg.accessKeyID);
+      //     formData.append("success_action_status", "200");
+      //     formData.append("signature", res.data.SignList.msg.sign);
+      //     formData.append("policy", res.data.SignList.msg.policyBase64);
+      //     formData.append("file", fileItem);
+      //     handleUploadFile(formData, encodeURI(ossHost));
+      //   } else {
+      //     alert("上传失败")
+      //     console.log(res);
+      //   }
+      // })
+    }
+
+    function handleUploadFile(msg, url, fileItem) {
+      var formData = new FormData();
+      formData.append("key", msg.filename);
+      formData.append("OSSAccessKeyId", msg.accessKeyID);
+      formData.append("success_action_status", "200");
+      formData.append("signature", msg.sign);
+      formData.append("policy", msg.policyBase64);
+      formData.append("file", fileItem);
+      $.ajax({
+        url: url,
+        data: formData,
+        type: 'POST',
+        cache: false,
+        //ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+        contentType: false,
+        //取消帮我们格式化数据，是什么就是什么
+        processData: false,
+        xhr: function () { //这里是计算上传进度
+          myXhr = $.ajaxSettings.xhr();
+          if (myXhr.upload) {
+            myXhr.upload.addEventListener('progress', function (e) {
+              if (e.lengthComputable) {
+                var percent = Math.floor(e.loaded / e.total * 100);
+                if (percent < 100) {
+                  document.getElementById("upload_btn").innerHTML = progress + '%'
+                } else {
+                  document.getElementById("upload_btn").innerHTML = '上传附件'
+                }
+                // $('#progress').css('width', percent + '%')
+                // $('#progress').html(percent + '%')
+              }
+            }, false);
+          }
+          return myXhr;
+        }
+      }).done(function (data) {
+        document.getElementById("slide-wrapper").classList.remove("slide-wrapper-hidden")
+        fileUrl = url + msg.filename
+        return false;
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR, textStatus, errorThrown)
+      });
+      // $.post(url, {
+      //   formData: formData
+      // }, function (res) {
+      //   if (res.statusText == "OK") {
+      //     document.getElementById("slide-wrapper").classList.remove("slide-wrapper-hidden")
+      //     fileUrl = url + ossFileName
+      //   } else {
+      //     alert("上传失败");
+      //     console.log(res);
+      //   }
+      // })
+      // axios({
+      //   method: "POST",
+      //   url: url,
+      //   data: formData,
+      //   onUploadProgress: function (progressEvent) {
+      //     var progress = Math.round(
+      //       progressEvent.lengthComputable ?
+      //       (progressEvent.loaded * 100) / progressEvent.total :
+      //       0
+      //     );
+      //     percentage = progress;
+      //     if (progress < 100) {
+      //       document.getElementById("upload_btn").innerHTML = progress + '%'
+      //     } else {
+      //       document.getElementById("upload_btn").innerHTML = '上传附件'
+      //     }
+      //   }
+      // }).then(function (res) {
+      //   if (res.statusText == "OK") {
+      //     document.getElementById("slide-wrapper").classList.remove("slide-wrapper-hidden")
+      //     fileUrl = url + ossFileName
+      //   } else {
+      //     alert("上传失败");
+      //     console.log(res);
+      //   }
+      // })
+    }
+
+    function handleSubmit() {
+      // 检测参数
+      var company_character = document.forms["myForm"]["company_character"].value;
+      var establish_time = document.forms["myForm"]["establish_time"].value;
+      var company_service = document.forms["myForm"]["company_service"].value;
+      var liaison = document.forms["myForm"]["liaison"].value;
+      var duties = document.forms["myForm"]["duties"].value;
+      var phone = document.forms["myForm"]["phone"].value;
+      var email = document.forms["myForm"]["email"].value;
+      var service_situation = document.forms["myForm"]["service_situation"].value;
+      var company_name = document.forms["myForm"]["company_name"].value;
+      var code = document.forms["myForm"]["code"].value;
+      var file_url = fileUrl
+      var id = uid
+      console.log(company_name, company_character, establish_time, liaison, duties, phone, email,
+        service_situation)
+      if (company_name && company_character && establish_time && liaison && duties && phone &&
+        email &&
+        service_situation && code && file_url) {
+        console.log("ok")
+      } else {
+        alert("请完善必填信息")
+        return
+      }
+      $.post('/joinAlliance', {
+        company_character: company_character,
+        establish_time: establish_time,
+        company_service: company_service,
+        liaison: liaison,
+        duties: duties,
+        phone: phone,
+        email: email,
+        service_situation: service_situation,
+        file_url: file_url,
+        code: code,
+        company_name: company_name,
+        id: id,
+      }, function (res) {
+        if (res.joinAllianceList.res_code == 1) {
+          $("input[type=reset]").trigger("click");
+          document.getElementById("slide-wrapper").classList.add("slide-wrapper-hidden");
+          fileUrl = "";
+          alert('提交成功');
+        } else {
+          alert(res.joinAllianceList.msg)
+        }
+      })
+      // axios.post('/joinAlliance', {
+      //   company_character: company_character,
+      //   establish_time: establish_time,
+      //   company_service: company_service,
+      //   liaison: liaison,
+      //   duties: duties,
+      //   phone: phone,
+      //   email: email,
+      //   service_situation: service_situation,
+      //   file_url: file_url,
+      //   code: code,
+      //   company_name: company_name,
+      //   id: id,
+      // }).then(function (res) {
+      //   if (res.data.joinAllianceList.res_code == 1) {
+      //     $("input[type=reset]").trigger("click");
+      //     document.getElementById("slide-wrapper").classList.add("slide-wrapper-hidden")
+      //     fileUrl = ""
+      //     alert('提交成功')
+
+      //   } else {
+      //     alert(res.data.joinAllianceList.msg)
+      //   }
+      // })
+    }
+    // 刷新 code
+    function handleGetCode() {
+      axios.post('/getcode').then(function (res) {
+        var baseCodeResult = res.data.baseCodeResult
+        if (baseCodeResult.res_code === 1) {
+          document.getElementById("newcode").innerHTML = baseCodeResult.data.svg
+        }
+      })
+    }
+    var images = document.querySelectorAll(".branwdo");
+    lazyload(images);
+
+    window.onload = function () {
+      setHeight()
+      new Jdate({
+        el: '#date-group1-1',
+        format: 'YYYY-MM-DD',
+        beginYear: 2000,
+        endYear: 2100,
+        confirm: function (date) {
+          console.log(date)
+          console.log('确定按钮触发');
+        },
+        cancel: function () {
+          console.log('插件运行取消');
+        }
+      })
+    }
+  </script>
+  <script src="/js/jquery_date.js"></script>
+
+
+  <script>
+    $(function () {
+      //手指滑动多少距离就认为是滑成功
+      //这个值不能太大，否则影响斜着滑动时，垂直滑动的流畅性，也不能太小，太灵敏也不好
+      var diffXDistance = 50;
+
+      //当前滑动的对象
+      var currentObject;
+      //上一次滑动的对象
+      var lastObject;
+
+      //是否可以左右滑动，在上下滑的时候禁止左右滑
+      var canSlide = true;
+      //用于记录按下的点
+      var startPoint;
+
+      $(".slide-content").css({
+        width: $(".slide-wrapper").width()
+      });
+
+      $(".slide-scroll").css({
+          width: $(".slide-wrapper").width() + $(".slide-content-button").width()
+        })
+        .on('touchstart', function (e) {
+          currentObject = this;
+
+          startPoint = {
+            x: e.originalEvent.changedTouches[0].pageX,
+            y: e.originalEvent.changedTouches[0].pageY
+          };
+        })
+        .on('touchmove', function (e) {
+          //如果是左右滑动，就禁止上下的滑动
+          //如果是上下的滑动，就禁止左右滑动
+          if (Math.abs(e.originalEvent.changedTouches[0].pageX - startPoint.x) > Math.abs(e
+              .originalEvent.changedTouches[0].pageY - startPoint.y)) {
+            event.preventDefault();
+          } else {
+            canSlide = false;
+          }
+        })
+        .on('touchend', function (e) {
+          //如果是上下滑动，这里就直接返回了
+          if (!canSlide) {
+            canSlide = true;
+            return true;
+          }
+
+          //点击除当前左滑对象之外的任意其他位置
+          if (lastObject && currentObject != lastObject) {
+            //右滑→
+            $(lastObject).removeClass("animate-slide");
+
+            //清空上一个左滑的对象
+            lastObject = undefined;
+          }
+
+          var diffX = e.originalEvent.changedTouches[0].pageX - startPoint.x;
+          if (diffX < -diffXDistance) {
+            //左滑←
+            $(currentObject).addClass("animate-slide");
+            if (lastObject && lastObject != currentObject) {
+              //右滑→
+              $(lastObject).removeClass("animate-slide");
+            }
+            //记录上一个左滑的对象
+            lastObject = currentObject;
+          } else if (diffX >= diffXDistance) {
+            if (currentObject == lastObject) {
+              //右滑→
+              $(currentObject).removeClass("animate-slide");
+              //清空上一个左滑的对象
+              lastObject = undefined;
+            }
+          }
+        });
+    });
+
+    function handleHiddenSlideWrapper() {
+      document.getElementById("slide-wrapper").classList.add("slide-wrapper-hidden")
+    }
+  </script>
+  <script>
+    window.onload = function () {
+        var nav = document.getElementById('nav');
+        var tabblog = nav.offsetTop
+        var center = document.querySelector(".center");
+        document.onscroll = function () {
+            var distance = document.body.scrollTop || document.documentElement.scrollTop;
+            if (distance > tabblog) {
+                nav.className = "scroll_hor tabfixed";
+                //nav置顶后 需将center向下移nav的宽度，否则影响样式
+                center.style.marginTop = "1rem";
+            } else {
+                center.style.marginTop = "0";
+                nav.className = "scroll_hor";
+            }
+            if (distance > 0) {
+        document.getElementById('backtop').style.display = "block"  
+        document.getElementById('backmenu').style.display = "block"  
+    } else {
+        document.getElementById('backtop').style.display = "none"  
+        document.getElementById('backmenu').style.display = "none"  
+    }
+        };
+    }
+  </script>
+</body>
+
+</html>

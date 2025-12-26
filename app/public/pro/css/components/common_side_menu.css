@@ -1,0 +1,168 @@
+.ta_c {
+  text-align: center;
+}
+.side_menu_wrapper {
+  position: fixed;
+  right: 0;
+  top: 1.28rem;
+  z-index: 998;
+  height: 100%;
+}
+.side_menu_wrapper .origin_block {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+}
+.side_menu_wrapper .side_menu {
+  float: right;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  width: 0rem;
+  overflow-y: scroll;
+  background: #ffffff;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+}
+.side_menu_wrapper .side_menu .side_menu_header {
+  position: relative;
+  height: 1.33333333rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0.37333333rem;
+  padding-bottom: 0.37333333rem;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.side_menu_wrapper .side_menu .side_menu_header .side_menu_header_item_default {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.42666667rem;
+  font-weight: 500;
+  color: #01070d;
+  line-height: 0.61333333rem;
+}
+.side_menu_wrapper .side_menu .side_menu_header .side_menu_header_item_active {
+  color: #2761ce;
+}
+.side_menu_wrapper .side_menu .side_menu_header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #CED8E2;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+}
+.side_menu_wrapper .side_menu .side_menu_main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.42666667rem;
+  color: #01070d;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item {
+  min-height: 1.33333333rem;
+  line-height: 1.33333333rem;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_first_level {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 0.37333333rem;
+  overflow: hidden;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_first_level .arrow {
+  vertical-align: middle;
+  width: 0.45333333rem;
+  height: 0.45333333rem;
+  margin-right: 0.37333333rem;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_first_level .line-bottom {
+  position: absolute;
+  left: 0.37333333rem;
+  bottom: 0rem;
+  width: 100%;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_first_level_active .line-bottom {
+  display: none;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_first_level_active .arrow {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_second_level {
+  display: none;
+  padding-left: 0.64rem;
+  font-size: 0.4rem;
+  background: #f0f3f6;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_second_level img {
+  vertical-align: middle;
+  width: 0.93333333rem;
+  height: 0.93333333rem;
+  margin-right: 0.26666667rem;
+}
+.side_menu_wrapper .side_menu .side_menu_main .side_menu_item .side_menu_second_level_active {
+  display: block;
+}
+.side_menu_show .side_menu {
+  width: 6.48rem;
+}
+.side_menu_show .origin_block {
+  display: block;
+}
+.backtop {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: fixed;
+  right: 0.37333333rem;
+  bottom: 1.86666667rem;
+  z-index: 997;
+  display: none;
+}
+.backmenu {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: fixed;
+  right: 0.37333333rem;
+  bottom: 3.2rem;
+  z-index: 997;
+  display: none;
+}

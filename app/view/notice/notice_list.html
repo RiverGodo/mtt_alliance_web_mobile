@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/notice/notice_list.css">
+  <script src="/js/rem.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="notice_list_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/meeting/notice.png" alt=""> &nbsp; 全部通知
+      </div>
+    </header>
+    <% for (let i = 0; i < activityList.length; i++) { %>
+    <div class="news_scroll_wrapper_show_item" onclick="showDetail(<%= activityList[i].id%>)">
+      <header class="news_active_list_item_header">
+        <%= activityList[i].title%>
+      </header>
+      <div class="content">
+
+        <% if(activityList[i].cover_img) { %>
+        <div class="left">
+          <img src="<%=activityList[i].cover_img%>" alt="">
+        </div>
+        <% } %>
+        <div class="right">
+          <%=activityList[i].describe%>
+        </div>
+      </div>
+      <div class="news_active_list_item_footer">
+        <!-- <span><%= activityList[i].type%></span> -->
+        <span><%= helper.relativeTime(activityList[i].create_time,'YYYY·MM·DD') %></span>
+      </div>
+    </div>
+    <%}%>
+  </section>
+  <% include ../component/common_side_menu.html %>
+    <% include ../component/common_copyright.html %>
+    <% include ../component/common_js.html %>
+    <script>
+      function showDetail(id) {
+        location.href = "/notice_list/" + id
+      }
+    </script>
+</body>
+
+</html>

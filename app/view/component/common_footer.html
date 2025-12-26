@@ -1,0 +1,124 @@
+<footer class="common_footer">
+
+
+  <div class="footer_item">
+    <div onclick="handleActive(this,1)">
+      <span class="title">
+        友情链接
+      </span>
+      <img class="more" src="/img/index/in-white.png" alt="">
+    </div>
+    <div class="more_aboutus" id="footer_item1" style="display: none;">
+      <div onclick="jumpHref('http://www.moe.gov.cn')" class="hl">中华人民共和国教育部</div>
+      <div onclick="jumpHref('http://www.nhc.gov.cn')" class="hl">中华人民共和国国家卫生健康委员会</div>
+      <div onclick="jumpHref('https://www.21wecan.com')" class="hl">国家卫生健康委人才交流服务中心</div>
+    </div>
+  </div>
+  <!-- <div class="footer_item">
+    <div onclick="handleActive(this,2)">
+      <span class="title">
+        联盟成员
+      </span>
+      <img class="more" src="/img/index/in-white.png" alt="">
+    </div>
+    <div class="more_aboutus" id="footer_item2" style="display: none;">
+      <div>国家卫生健康委人才交流服务中心</div>
+      <div>
+        <span>中国医学科学院</span> <span>北京协和医学院</span><span>北京协和医院</span>
+      </div>
+      <div>
+        <span>首都医科大学 </span> <span>中南大学湘雅医院</span>
+      </div>
+      <div>
+        <span>海南省卫生健康委员会 </span> <span>宁夏回族自治区卫生健康委员会</span>
+      </div>
+      <div>
+        <span>英国医学教育委员会 </span> <span>意大利国家卫生研究院</span>
+      </div>
+      <div>
+        <span>查看更多 </span> <img src="/img/index/in-white.png" alt="">
+      </div>
+    </div>
+  </div> -->
+  <div class="footer_item">
+    <div onclick="changePage('/privacy')">
+      <span class="title">
+        隐私政策
+      </span>
+      <img class="more" src="/img/index/in-white.png" alt="">
+    </div>
+  </div>
+  <div class="footer_item">
+    <div onclick="changePage('/QA')">
+      <span class="title">
+        常见问答
+      </span>
+      <img class="more" src="/img/index/in-white.png" alt="">
+    </div>
+  </div>
+    <div class="footer_item">
+    <div onclick="handleActive(this,0)">
+      <span class="title">
+        联系我们
+      </span>
+      <img class="more" src="/img/index/in-white.png" alt="">
+    </div>
+    <div class="more_aboutus" id="footer_item0" style="display: none;">
+      <!-- <div>
+        <span class="url_link" data-url="/about">联盟介绍</span>
+        <span class="url_link" data-url="/about">组织结构和职责</span>
+        <span class="url_link" data-url="/about">联盟章程</span>
+        <span class="url_link" data-url="/about">联系我们</span>
+      </div> -->
+      <div class="tell_us">
+          <div class="tell_us_top">
+            <div class="tell_us_tops">
+              <img src="/img/index/foot1.png" alt="">
+              <p>徐老师：</p>
+              <a href="tel:+86 13910841135">+86 13910841135</a>
+            </div>
+            <div class="tell_us_tops">
+              <img src="/img/index/foot2.png" alt="">
+              <p>公共邮箱：</p>
+              <a href="mailto:support@alliancebrh.com">support@alliancebrh.com</a>
+            </div>
+          </div>
+          <div class="tell_us_end">
+            <img class="er_code" src="/img/index/foot3.png" alt="">
+            <div class="tell_us_end_right">
+              <img src="/img/index/foot4.png" alt="">
+              <div>
+                <p>长按识别二维码</p>
+                <p>关注微信公众号</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  var footer_url_link_list = document.querySelectorAll(".url_link")
+  for (var i = footer_url_link_list.length - 1; i >= 0; i--) {
+    footer_url_link_list[i].onclick = function (e) {
+      location.href = e.target.dataset.url
+    }
+  }
+
+  function handleActive(node, index) {
+    if (!node.isChecked) {
+      node.isChecked = true
+      node.classList.add("footer_item_active")
+      document.getElementById("footer_item" + index).style.display = "block"
+    } else {
+      node.isChecked = false
+      node.classList.remove("footer_item_active")
+      document.getElementById("footer_item" + index).style.display = "none"
+    }
+
+  }
+
+  function jumpHref(href){
+    window.open(href)
+  }
+</script>

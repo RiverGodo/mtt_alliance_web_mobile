@@ -1,0 +1,270 @@
+@import "../variable.less";
+
+.video_detail_wrapper {
+  width: 92%;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  .title {
+    .fs(18);
+    .l-h(31);
+    .m-t(17);
+    // .m-b(17);
+    font-weight: 500;
+    color: rgba(1, 7, 13, 1);
+    border-bottom: 1px solid #E5EBF0;
+    .p-b(15);
+  }
+
+  .live_wrapper_bg {
+    position: relative;
+    .m-t(17);
+    .fs(13);
+    .l-h(18);
+    color: rgba(111, 133, 156, 1);
+
+    video,
+    img {
+      .m-t(10);
+      width: 100%;
+    }
+
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      .w(70);
+      .h(70);
+    }
+  }
+
+  .des {
+    .fs(13);
+    .l-h(16);
+    // .m-b(15);
+    color: rgba(111, 133, 156, 1);
+  }
+
+  .meeting_bg_wrapper {
+    .fs(16);
+    color: rgba(1, 7, 13, 1);
+
+
+
+    p {
+      .l-h(28);
+      
+    }
+
+    .meeting_bg_content {
+      position: relative;
+
+      overflow: hidden;
+
+      .meeting_bg_content_mask {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        .h(60);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
+      }
+    }
+
+    .meeting_bg_content_close {
+      .h(110);
+
+      .meeting_bg_content_mask {
+        display: block;
+      }
+    }
+
+    .meeting_bg_content_show {
+      height: auto;
+
+      .meeting_bg_content_mask {
+        display: none;
+      }
+    }
+
+    .meeting_bg_content_btn {
+      .m-t(10);
+      .fs(13);
+      color: rgba(111, 133, 156, 1);
+      text-align: center;
+
+      img {
+        vertical-align: middle;
+        .w(15);
+        .h(15);
+      }
+
+      .to_show {
+        display: none;
+
+        img {
+          transform: rotate(180deg)
+        }
+      }
+
+
+    }
+  }
+
+  .meeting_guest_wrapper {
+    .guest_item {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .h(97);
+      .m-t(15);
+      .head_img {
+        .w(70);
+        .h(70);
+        border-radius: 100%;
+        overflow: hidden;
+        border: 1px solid rgba(240, 243, 246, 1);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .person {
+        .w(230);
+        color: rgba(1, 7, 13, 1);
+        .m-l(10);
+
+        .name {
+          font-weight: 500;
+          .fs(18);
+          .l-h(23);
+
+        }
+
+        .des {
+          .m-t(5);
+          .fs(15);
+          .l-h(21);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          /* 可以显示的行数，超出部分用...表示*/
+          -webkit-box-orient: vertical;
+          color: #01070D;
+        }
+      }
+
+      .arrow {
+        img {
+          .w(7);
+          .h(13);
+        }
+      }
+    }
+
+    .guest_item::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #E5EBF0;
+      position: absolute;
+      transform: scale(1, 0.3);
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .meeting_schdule_wrapper {
+    .fs(16);
+
+    .meeting_schdule_item {
+      position: relative;
+      .h-min(50);
+      text-align: left;
+
+      p {
+        width: 90%;
+        .p-t(20);
+        .l-h(23);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .person {
+        color: rgba(111, 133, 156, 1);
+        .p-b(14);
+        .p-t(7);
+        display: none;
+      }
+
+      // 
+
+
+      .img {
+        position: absolute;
+        .w(7);
+        .h(14);
+        .right(14);
+        .top(25);
+      }
+    }
+
+    .meeting_schdule_item_active {
+      p {
+        width: 90%;
+        .p-t(20);
+        // text-overflow: ellipsis;
+        white-space: normal;
+        overflow: visible;
+      }
+
+      .person {
+        display: block;
+      }
+
+      .img {
+        transform: rotate(90deg);
+      }
+    }
+
+    .meeting_schdule_item::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #E5EBF0;
+      position: absolute;
+      transform: scale(1, 0.3);
+      bottom: 0;
+      left: 0;
+    }
+    .all_time{
+      width: 100%;
+      .h(50);
+      background:rgba(240,243,246,1);
+      border-radius:3px;
+      p{
+        text-align: center;
+        .fs(16);
+        font-weight:500;
+        color:rgba(1,7,13,1);
+        .l-h(50);
+      }
+    }
+  }
+
+  .meeting_organizer_wrapper {
+    p {
+      .m-t(23);
+      .m-b(23);
+      .fs(16);
+      .l-h(23);
+      color: rgba(1, 7, 13, 1);
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.ta_c {
+  text-align: center;
+}
+.todo_mask {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+.todo_mask .board {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-top: 0.45333333rem;
+  width: 6.02666667rem;
+  height: 3.28rem;
+  background: #fff;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.42666667rem;
+  line-height: 0.64rem;
+}
+.todo_mask .board .board_main {
+  position: relative;
+  height: 100%;
+}
+.todo_mask .board .board_main .word {
+  color: #000000;
+}
+.todo_mask .board .board_main .confirm_btn {
+  position: absolute;
+  bottom: 0;
+  height: 1.25333333rem;
+  width: 100%;
+  line-height: 1.25333333rem;
+  color: #2761ce;
+}
+.todo_mask_hidden {
+  display: none;
+}

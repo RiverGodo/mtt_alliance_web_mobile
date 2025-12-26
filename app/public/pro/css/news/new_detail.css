@@ -1,0 +1,9 @@
+.ta_c {
+  text-align: center;
+}
+.news_detail_wrapper .title {
+  font-size: 0.53333333rem;
+  line-height: 0.82666667rem;
+  font-weight: 500;
+  color: #01070d;
+}

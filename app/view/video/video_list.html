@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/video/video_list.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="video_list_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/video/video-big.png" alt=""> &nbsp; 全部视频
+      </div>
+    </header>
+    <section class="index_video">
+      <% for (let i = 0; i < videoList.length; i++) { %>
+      <div class="video_item" data-id="<%=videoList[i].id%>">
+        <div class="cover">
+          <img class="cover_img" src="<%=videoList[i].cover_img%>" alt="">
+          <img class="start" src="/img/index/play.png" alt="">
+        </div>
+        <div class="des">
+          <span><%=videoList[i].language_id%></span>
+          <%=videoList[i].title%>
+        </div>
+      </div>
+      <%}%>
+    </section>
+  </section>
+  <% include ../component/common_side_menu.html %>
+      <% include ../component/common_footer.html %>
+      <% include ../component/common_copyright.html %>
+      <% include ../component/common_js.html %>
+      <script>
+        // 给视频绑定点击事件
+        var news_active_list = document.querySelectorAll(".video_item")
+        for (var i = 0; i < news_active_list.length; i++) {
+          news_active_list[i].onclick = function (e) {
+            location.href = "/video_list/" + e.currentTarget.dataset.id
+          }
+        }
+      </script>
+</body>
+
+</html>

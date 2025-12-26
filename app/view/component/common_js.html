@@ -1,0 +1,101 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
+<script>
+  // Header
+  function showSideMenu() {
+    if (document.getElementById('side_menu_wrapper').className == "side_menu_wrapper") {
+      document.getElementById('side_menu_wrapper').className = "side_menu_wrapper side_menu_show"
+      document.getElementById('head_menu').className = "menu close_menu"
+      stop()
+    }else{
+      document.getElementById('side_menu_wrapper').className = "side_menu_wrapper"
+      document.getElementById('head_menu').className = "menu"
+      move()
+    }
+  }
+
+  function hideSideMenu() {
+    document.getElementById('side_menu_wrapper').className = "side_menu_wrapper"
+    move()
+  }
+
+  //Menu
+
+  var all_menu_first_level_list = document.querySelectorAll(".side_menu_first_level")
+  var all_menu_second_level_list = document.querySelectorAll(".side_menu_second_level")
+  for (var i = 0, len = all_menu_first_level_list.length; i < len; i++) {
+    all_menu_first_level_list[i].onclick = function (e) {
+      var nextElementSibling = e.currentTarget.nextElementSibling
+      var currentTarget = e.currentTarget
+      if (nextElementSibling) {
+        var node_classList = nextElementSibling.classList
+        currentTarget.classList.toggle("side_menu_first_level_active")
+        currentTarget.nextElementSibling.classList.toggle("side_menu_second_level_active")
+      } else {
+        var url = currentTarget.dataset.url
+        if (url) {
+          location.href = url
+        } else {
+          toggleToDoMask()
+        }
+      }
+    }
+  }
+  for (var i = 0, len = all_menu_second_level_list.length; i < len; i++) {
+    all_menu_second_level_list[i].onclick = function (e) {
+
+      var url = e.target.dataset.url
+      if (url) {
+        location.href = url
+      } else {
+        toggleToDoMask()
+      }
+    }
+  }
+
+  function changePage(page) {
+    location.href = page
+    event.preventDefault()
+  }
+
+  function hideSideMenuByMask() {
+    showSideMenu()
+  }
+
+  function stopPop(e) {
+
+    event.stopPropagation()
+  }
+
+  // mask
+  function toggleToDoMask() {
+    document.getElementById("todo_mask").classList.toggle("todo_mask_hidden")
+  }
+
+  //禁止页面滑动
+  function stop(){
+    var mo=function(e){passive: false ;};
+    document.body.style.overflow='hidden';
+    document.addEventListener("touchmove",mo,false);//禁止页面滑动
+  }
+  //取消滚动限制
+  function move(){
+      var mo=function(e){passive: false };
+      document.body.style.overflow='';//出现滚动条
+      document.removeEventListener("touchmove",mo,false);
+  }
+  
+  function backScrollTop(){
+    document.documentElement.scrollTop = 0
+  }
+
+  document.onscroll = function () {
+    var distance = document.body.scrollTop || document.documentElement.scrollTop;
+    if (distance > 0) {
+        document.getElementById('backtop').style.display = "block"  
+        document.getElementById('backmenu').style.display = "block"  
+    } else {
+        document.getElementById('backtop').style.display = "none"  
+        document.getElementById('backmenu').style.display = "none"  
+    }
+  }
+</script>

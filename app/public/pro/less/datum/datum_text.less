@@ -1,0 +1,135 @@
+.text_top {
+    p {
+        font-size: 0.537rem;
+        font-weight: 500;
+        color: rgba(1, 7, 13, 1);
+        line-height: 0.75rem;
+        text-align: center;
+        margin-top: 0.463rem;
+        margin-bottom: 0.3704rem;
+    }
+}
+
+.text_tab {
+    display: flex;
+    align-items: center;
+    height: 0.9167rem;
+    border-top: 0.0093rem solid #CED8E2;
+    border-bottom: 0.0093rem solid #CED8E2;
+    margin-bottom: 0.463rem;
+    position: relative;
+
+    .tab_wind {
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 0.9033rem;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.5);
+        height: 14.2rem;
+
+        .tab_wind_top {
+            background: #ffffff;
+            padding-top: 0.6481rem;
+            padding-bottom: 0.2778rem;
+
+            .tab_wind_top_single {
+                width: 9.2593rem;
+                margin: 0 auto;
+                background: rgba(240, 243, 246, 1);
+                margin-bottom: 0.3704rem;
+                p {
+                    font-size: 0.3519rem;
+                    color: rgba(39, 97, 206, 1);
+                    line-height: 0.4259rem;
+                    padding-left: 0.3704rem;
+                    padding-top: 0.2685rem;
+                    padding-bottom: 0.2685rem;
+                }
+            }
+            .selected{
+                background:rgba(39,97,206,1);
+                p{
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        .tab_wind_end {
+            // height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    .text_tab_left {
+        display: flex;
+        align-items: center;
+        width: 6.0741rem;
+        justify-content: space-between;
+        margin-left: 0.3704rem;
+
+        p {
+            font-size: 0.3519rem;
+            font-weight: 400;
+            color: rgba(1, 7, 13, 1);
+            line-height: 0.4907rem;
+        }
+
+    }
+
+    img {
+        width: 0.5093rem;
+        height: 0.5093rem;
+        margin-left: auto;
+        margin-right: 0.3704rem;
+    }
+}
+
+.text_list {
+    width: 9.2593rem;
+    margin: 0 auto;
+    margin-bottom: 0.9259rem;
+    .text_list_single {
+        border-bottom: 0.0093rem solid #CED8E2;
+        padding-bottom: 0.3704rem;
+        margin-top: 0.3704rem;
+
+        .text_list_single_top {
+            p {
+                font-size: 0.4259rem;
+                color: rgba(1, 7, 13, 1);
+                line-height: 0.6481rem;
+                font-family: Helvetica;
+            }
+
+            margin-bottom: 0.1852rem;
+        }
+
+        .text_list_single_end {
+            display: flex;
+            align-items: center;
+
+            p {
+                font-size: 0.2593rem;
+                font-family: Helvetica;
+                color: rgba(111, 133, 156, 1);
+                margin-right: 0.2778rem;
+            }
+        }
+
+    }
+}
+
+.talent_wrapper{
+    min-height: 8.3rem;
+}
+
+.tabfixed{
+    position: fixed;
+    top: 1.29rem;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+}

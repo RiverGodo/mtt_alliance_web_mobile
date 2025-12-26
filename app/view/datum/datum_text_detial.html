@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/datum/datum_text_detial.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <div class="text_detial">
+        <div class="text_detial_top">
+            <p class="title"><%= wordDetail.title %></p>
+            <div class="desc">
+                <p><%= wordDetail.origin %></p>
+                <p><%= helper.relativeTime(wordDetail.create_time,'YYYY·MM·DD') %></p>
+            </div>
+        </div>
+        <img onclick="changePage('<%= wordDetail.file_list[0].file_url %>')" src="/img/datum/pdf.png" alt="">
+        <% for (let i = 0; i < wordDetail.file_list.length; i++) { %>
+            <div class="text_single">
+                <a href="<%= wordDetail.file_list[i].file_url %>"><%= wordDetail.file_list[i].file_name %></a>
+            </div>
+        <% } %>
+    </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+
+    
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/datum/datum_ppt_detial.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <div class="text_detial">
+      <div class="text_detial_top">
+          <p class="title"><%= pptDetail.title %></p>
+          <div class="desc">
+              <p><%= pptDetail.origin %></p>
+              <p><%= helper.relativeTime(pptDetail.create_time,'YYYY·MM·DD') %></p>
+          </div>
+      </div>
+      <img onclick="changePage('<%= pptDetail.file_url %>')" src="/img/datum/ppt.png" alt="">
+      <div class="text_single">
+          <a id="href" href="<%= pptDetail.file_url %>"><%= pptDetail.file_name %></a>
+      </div>
+  </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+  
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+@import "../variable.less";
+
+.notice_list_wrapper {
+  min-height: 100vh;
+
+  .index_module_header {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    .m-t(7);
+    background: #ffffff;
+    box-shadow: 0px 1px 3px 0px rgba(206, 216, 226, 0.51);
+    .border-radius(3);
+    .h(50);
+    .fs(16);
+
+    .index_module_header_title {
+      flex-basis: 70%;
+      display: flex;
+      align-items: center;
+      color: rgba(1, 7, 13, 1);
+      font-weight: 500;
+      .fs(20);
+      color: rgba(39, 97, 206, 1);
+
+      img {
+        .w(28);
+        .h(28);
+        .m-l(10);
+      }
+    }
+
+  }
+
+  .news_scroll_wrapper_show_item {
+    position: relative;
+    width: 92%;
+    margin: 0 auto;
+    // display: flex;
+    // flex-flow: row;
+    font-weight: 400;
+    .p-t(14);
+    background: #ffffff;
+
+    .news_active_list_item_header {
+      .fs(16);
+      .l-h(23);
+      .p-r(10);
+      .p-b(7);
+      font-weight: 500;
+      color: rgba(1, 7, 13, 1);
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .content {
+      display: flex;
+
+      .left {
+        img {
+          .w(90);
+          .h(61);
+        }
+
+        .m-r(7);
+      }
+
+      .right {
+        flex: 1;
+        .l-h(22);
+
+        .fs(13);
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+    }
+
+    .news_active_list_item_footer {
+      .fs(10);
+      color: rgba(111, 133, 156, 1);
+      .l-h(14);
+      .p-t(10);
+      .p-b(10);
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+
+  .news_scroll_wrapper_show_item::after {
+    content: "";
+    .w(340);
+    .h(1);
+    background: #CED8E2;
+    position: absolute;
+    transform: scale(1, 0.3);
+    bottom: 0;
+    .left(10);
+  }
+}

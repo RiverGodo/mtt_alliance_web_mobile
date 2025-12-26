@@ -1,0 +1,47 @@
+.pollicy .pollicy_top {
+  height: 1.5741rem;
+  border-bottom: 0.0093rem solid #CED8E2;
+}
+.pollicy .pollicy_top p {
+  font-size: 0.537rem;
+  font-weight: 500;
+  color: #01070d;
+  line-height: 1.5741rem;
+  text-align: center;
+}
+.pollicy .pollicy_main {
+  width: 9.2593rem;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+.pollicy .pollicy_main .pollicy_single {
+  border-bottom: 0.0093rem solid #CED8E2;
+  padding-bottom: 0.3704rem;
+}
+.pollicy .pollicy_main p {
+  font-size: 0.4259rem;
+  font-weight: 400;
+  color: #01070d;
+  line-height: 0.6481rem;
+  margin-bottom: 0.1852rem;
+  margin-top: 0.3704rem;
+  position: relative;
+  text-indent: 0.7778rem;
+  height: 1.2963rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.pollicy .pollicy_main p img {
+  width: 0.6481rem;
+  height: 0.6481rem;
+  margin-right: 0.1852rem;
+  position: absolute;
+  left: 0;
+}
+.pollicy .pollicy_main span {
+  font-size: 0.2593rem;
+  color: #6f859c;
+  line-height: 0.3148rem;
+  margin-top: 0.1852rem;
+}

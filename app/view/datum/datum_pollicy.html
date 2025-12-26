@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/datum/datum_pollicy.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+        <div class="pollicy">
+            <div class="pollicy_top">
+                <p>相关政策文件</p>
+            </div>
+            <div class="pollicy_main">
+               <% for (let i = 0; i < policyList.policy_list.length; i++) { %>
+                    <div onclick="changePage('/datum/datum_pollicy_detial/<%= policyList.policy_list[i].id %>')" class="pollicy_single">
+                        <p class="pollicy_single_top">
+                            <img src="/img/datum/pdf.png" alt="">
+                            <%= policyList.policy_list[i].title %> 
+                        </p>
+                        <span><%= helper.relativeTime(policyList.policy_list[i].create_time,'YYYY·MM·DD') %></span>
+                    </div>
+               <% } %>
+            </div>
+        </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+      
+  </script>
+</body>
+
+</html>

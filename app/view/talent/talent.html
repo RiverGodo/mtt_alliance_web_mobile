@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/talent/talent.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/talent/talent.png" alt=""> &nbsp; 人才培养
+      </div>
+    </header>
+    <div class="talent_main">
+      <div class="talent_main_item">
+        <div onclick="changePage('/talent/talent_inland')" class="bg">
+          <img class="bg_img" src="/img/talent/bg1.png" alt="">
+          <span class="title">国内培训&nbsp;<img class="in" src="/img/talent/in.png" alt=""></span>
+          <div class="flag">
+            <span class="num">4</span> <span class="test">项</span>
+          </div>
+        </div>
+        <p onclick="changePage('/talent/talent_inland_detial/1')">国家职业资格培训计划</p>
+        <p onclick="changePage('/talent/talent_inland_detial/2')">国家职业资格培训健康管理师</p>
+        <p onclick="changePage('/talent/talent_inland_detial/3')">社区医疗培训项目</p>
+        <!-- <p onclick="changePage('/talent/talent_inland_detial/4')">大健康产业H-MBA领军项目计划</p> -->
+      </div>
+      <div onclick="changePage('/talent/talent_inland')" class="talent_all">
+        <p>查看全部</p>
+        <img src="/img/index/more.png" alt="">
+      </div>
+      <div class="talent_main_item">
+        <div onclick="changePage('/talent/talent_foreign')" class="bg">
+          <img class="bg_img" src="/img/talent/bg2.png" alt="">
+          <span class="title">国际培训&nbsp;<img class="in" src="/img/talent/in.png" alt=""></span>
+          <div class="flag"><span class="num">9</span> <span class="test">项</span></div>
+        </div>
+        <p onclick="changePage('/talent/talentDevDetailSimple')">“一带一路”医学人才培养联盟三年规划(202…</p>
+        <p onclick="changePage('/talent/talent_foreign_detial/Japan')">日本医院管理及临床专业类短期交流项目招…</p>
+        <p onclick="changePage('/talent/talent_foreign_detial/France')">法国医院管理及临床专业类短期交流项目招…</p>
+        <!-- <p onclick="changePage('/talent/talent_foreign_detial/UK')">英国医院管理及临床专业类短期交流项目招…</p>
+        <p onclick="changePage('/talent/talent_foreign_detial/Italy')">意大利医院管理及临床专业类短期交流项目…</p> -->
+      </div>
+      <div onclick="changePage('/talent/talent_foreign')" class="talent_all">
+        <p>查看全部</p>
+        <img src="/img/index/more.png" alt="">
+      </div>
+      <div class="talent_main_item">
+        <div onclick="changePage('/talent/talent_back')" class="bg">
+          <img class="bg_img" src="/img/talent/bg3.png" alt="">
+          <span class="title">项目回顾&nbsp;<img class="in" src="/img/talent/in.png" alt=""></span>
+          <div class="flag"><span class="num">5</span> <span class="test">项</span></div>
+        </div>
+        <p onclick="changePage('/talent/talent_back_detial/1')">中日医院管理及人文交流项目</p>
+        <p onclick="changePage('/talent/talent_back_detial/2')">法中医学检验专业能力建设项目</p>
+        <p onclick="changePage('/talent/talent_back_detial/3')">法国瑞典医院管理与医学人文交流</p>
+        <!-- <p onclick="changePage('/talent/talent_back_detial/4')">英国剑桥医院管理与医学人文交流项目</p>
+        <p onclick="changePage('/talent/talent_back_detial/5')">奥地利医院管理及医学人文交流项目</p> -->
+      </div>
+      <div onclick="changePage('/talent/talent_back')" class="talent_all">
+        <p>查看全部</p>
+        <img src="/img/index/more.png" alt="">
+      </div>
+    </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.ta_c {
+  text-align: center;
+}
+.common_copyright {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-size: 0.26666667rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  background: #1E252C;
+}

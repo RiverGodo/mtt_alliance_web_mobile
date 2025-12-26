@@ -1,0 +1,497 @@
+.ta_c {
+  text-align: center;
+}
+.meeting_detail_wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+.meeting_detail_wrapper .mask {
+  position: absolute;
+  right: 0;
+  top: 1.6rem;
+  width: 1.33333333rem;
+  height: 0.90666667rem;
+  background: -webkit-gradient(linear, right top, left top, from(#ffffff), to(rgba(255, 255, 255, 0.79)));
+  background: -webkit-linear-gradient(right, #ffffff 0%, rgba(255, 255, 255, 0.79) 100%);
+  background: -o-linear-gradient(right, #ffffff 0%, rgba(255, 255, 255, 0.79) 100%);
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0.79) 100%);
+}
+.meeting_detail_wrapper .title_wrapper {
+  width: 92%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.53333333rem;
+  line-height: 0.74666667rem;
+  height: 1.57333333rem;
+  font-weight: 500;
+  color: #2761ce;
+}
+.meeting_detail_wrapper .title_wrapper img {
+  margin-right: 0.18666667rem;
+  width: 0.77333333rem;
+  height: 0.77333333rem;
+  vertical-align: middle;
+}
+.meeting_detail_wrapper .scroll_hor {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 0.90666667rem;
+  line-height: 0.90666667rem;
+  margin: 0 auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+.meeting_detail_wrapper .scroll_hor .scroll_hor_item {
+  display: inline-block;
+  width: auto;
+  height: 0.90666667rem;
+  font-weight: 500;
+  color: #01070d;
+  font-size: 0.34666667rem;
+}
+.meeting_detail_wrapper .scroll_hor .scroll_hor_item_active {
+  color: #2761ce;
+}
+.meeting_detail_wrapper .scroll_hor .scroll_hor_item_disable {
+  color: #6f859c;
+}
+.meeting_detail_wrapper .meeting_title_wrapper {
+  padding-left: 0.45333333rem;
+  padding-bottom: 0.45333333rem;
+  margin-top: 0.53333333rem;
+  font-size: 0.42666667rem;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.meeting_detail_wrapper .meeting_title_wrapper span {
+  display: inline-block;
+  width: 0.10666667rem;
+  height: 0.50666667rem;
+  margin-right: 0.21333333rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(39, 97, 206, 0.1)), to(#2761ce));
+  background: -webkit-linear-gradient(top, rgba(39, 97, 206, 0.1) 0%, #2761ce 100%);
+  background: -o-linear-gradient(top, rgba(39, 97, 206, 0.1) 0%, #2761ce 100%);
+  background: linear-gradient(180deg, rgba(39, 97, 206, 0.1) 0%, #2761ce 100%);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.meeting_detail_wrapper .meeting_item {
+  display: none;
+}
+.meeting_detail_wrapper .meeting_item_active {
+  display: block;
+}
+.meeting_detail_wrapper .meeting_des {
+  text-align: center;
+}
+.meeting_detail_wrapper .meeting_des p {
+  width: 92%;
+  margin: 0 auto;
+  margin-bottom: 0.26666667rem;
+  color: #01070d;
+  font-size: 0.42666667rem;
+  line-height: 0.74666667rem;
+  text-align: left;
+}
+.meeting_detail_wrapper .meeting_des img {
+  width: 100%;
+  margin-top: 0.37333333rem;
+}
+.meeting_detail_wrapper .meeting_des .banner {
+  width: 92%;
+}
+.meeting_detail_wrapper .meeting_date .day_item {
+  line-height: 1.38666667rem;
+  width: 100%;
+  font-size: 0.42666667rem;
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title {
+  position: relative;
+  height: 1.38666667rem;
+  color: #2761ce;
+  background: -webkit-linear-gradient(135deg, #ffffff 0%, #e3f1ff 100%);
+  background: -o-linear-gradient(135deg, #ffffff 0%, #e3f1ff 100%);
+  background: linear-gradient(315deg, #ffffff 0%, #e3f1ff 100%);
+  border: 0px solid #ced8e2;
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title .day {
+  vertical-align: middle;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  margin-right: 0.26666667rem;
+  margin-left: 4%;
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title .up {
+  float: right;
+  margin-top: 0.34666667rem;
+  margin-right: 4%;
+  vertical-align: middle;
+  width: 0.56rem;
+  height: 0.56rem;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title_close::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  background: #ced8e2;
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title_active .up {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.meeting_detail_wrapper .meeting_date .day_item .day_item_title_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  background: #ced8e2;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content {
+  width: 100%;
+  background: #ffffff;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .des {
+  position: relative;
+  text-align: center;
+  background: #f0f3f6;
+  border: 0px solid #ced8e2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 0.01333333rem;
+  padding-top: 0.13333333rem;
+  padding-bottom: 0.13333333rem;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .des .fitst_level {
+  font-size: 0.34666667rem;
+  height: 0.66666667rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 500;
+  color: #01070d;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .des .second_level {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 0.61333333rem;
+  font-size: 0.29333333rem;
+  color: #01070d;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .short_des {
+  position: relative;
+  width: 92%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.34666667rem;
+  line-height: 0.61333333rem;
+  min-height: 1.14666667rem;
+  height: 1.14666667rem;
+  font-weight: 500;
+  color: #01070d;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .short_des::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  bottom: 0rem;
+  width: 108%;
+  height: 1px;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  background: #ced8e2;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .short_des::before {
+  content: "";
+  position: absolute;
+  left: -4%;
+  top: 0rem;
+  width: 108%;
+  height: 1px;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  background: #ced8e2;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .short_des + .short_des::before {
+  content: "";
+  position: absolute;
+  left: -4%;
+  top: 0rem;
+  width: 108%;
+  height: 1px;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  background: transparent;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .all {
+  width: 92%;
+  margin: 0 auto;
+  padding-top: 0.26666667rem;
+  padding-bottom: 0.26666667rem;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content .all p {
+  font-size: 0.29333333rem;
+  line-height: 0.61333333rem;
+}
+.meeting_detail_wrapper .meeting_date .day_item .content_hidden {
+  display: none;
+}
+.meeting_detail_wrapper .meeting_guest {
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 0.93333333rem;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item {
+  margin-top: 0.18666667rem;
+  width: 100%;
+  height: 2.4rem;
+  background: #f0f3f6;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #01070d;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item .head_img {
+  width: 1.86666667rem;
+  height: 1.86666667rem;
+  margin-left: 0.26666667rem;
+  margin-right: 0.26666667rem;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item .head_img img {
+  width: 100%;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item .guest_des {
+  height: 1.86666667rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item .guest_des .name {
+  margin-bottom: 0.18666667rem;
+  height: 0.61333333rem;
+  font-size: 0.42666667rem;
+  line-height: 0.61333333rem;
+  font-weight: 500;
+}
+.meeting_detail_wrapper .meeting_guest .guest_item .guest_des .des {
+  font-size: 0.29333333rem;
+  line-height: 0.53333333rem;
+  width: 6.53333333rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* 可以显示的行数，超出部分用...表示*/
+  -webkit-box-orient: vertical;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper {
+  font-size: 0.34666667rem;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_type {
+  position: relative;
+  height: 1.14666667rem;
+  line-height: 1.14666667rem;
+  text-align: center;
+  font-weight: 500;
+  color: #01070d;
+  background: #f0f3f6;
+  border: 0px solid #ced8e2;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_type::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #E5EBF0;
+  position: absolute;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  bottom: 0;
+  left: 0;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_type::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #E5EBF0;
+  position: absolute;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  top: 0;
+  left: 0;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item {
+  position: relative;
+  display: flow-root;
+  min-height: 1.86666667rem;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item .num {
+  position: absolute;
+  left: 0;
+  top: 0.21333333rem;
+  width: 0.8rem;
+  height: 0.53333333rem;
+  line-height: 0.53333333rem;
+  text-align: center;
+  background: #e3edff;
+  -webkit-border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
+  font-size: 0.29333333rem;
+  color: #2761ce;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item .sex {
+  position: absolute;
+  right: 0.37333333rem;
+  top: 0.37333333rem;
+  width: 0.37333333rem;
+  height: 0.37333333rem;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item .name {
+  width: 80%;
+  margin: 0 auto;
+  height: 0.93333333rem;
+  line-height: 0.93333333rem;
+  font-weight: bold;
+  color: #01070d;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item .des {
+  width: 80%;
+  margin: 0 auto;
+  color: #01070d;
+  line-height: 0.61333333rem;
+}
+.meeting_detail_wrapper .meeting_representative .representative_wrapper .representative_item::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #E5EBF0;
+  position: absolute;
+  -webkit-transform: scale(1, 0.3);
+  -ms-transform: scale(1, 0.3);
+  transform: scale(1, 0.3);
+  bottom: 0;
+  left: 0;
+}
+.meeting_detail_wrapper .meeting_review .review_pic_wrapper {
+  width: 92%;
+  margin: 0 auto;
+  text-align: center;
+}
+.meeting_detail_wrapper .meeting_review .review_pic_wrapper .review_img {
+  width: 100%;
+}
+.meeting_detail_wrapper .meeting_review .review_pic_wrapper .des {
+  font-size: 0.26666667rem;
+  line-height: 0.37333333rem;
+  padding-top: 0.26666667rem;
+  padding-bottom: 0.26666667rem;
+  font-weight: 400;
+  color: #6f859c;
+}
+.tabfixed {
+  position: fixed;
+  top: 1.29rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 2;
+}

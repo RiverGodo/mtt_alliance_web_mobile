@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>404页面</title>
+</head>
+
+<body>
+    <div>
+        <div class="error">
+            <p class="error_title">抱歉，没有找到页面君！</p>
+            <img class="error_img" src="/img/error-404.png" alt="">
+            <p class="error_desc"><span id="resecond">5</span>秒后自动返回网站首页</p>
+            <div onclick="handleIndex()" class="error_btn">
+                <img src="/img/error_back.png" alt="">
+                <p>立即返回首页</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var resecond = document.getElementById("resecond")
+    console.log(resecond);
+    let time = 5
+    function Timeout() {
+        setInterval(() => {
+            if (time == 0) {
+                window.location.href = "/"
+            }else{
+                time--
+                resecond.innerHTML = time
+            }
+        }, 1000);
+    }
+    Timeout()
+
+    function handleIndex(){
+        window.location.href = "/"
+    }
+    
+</script>
+
+</html>

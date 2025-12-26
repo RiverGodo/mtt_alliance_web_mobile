@@ -1,0 +1,4 @@
+{
+    "cdn":"<%= cdn %>",
+    "testcdn":"<%= testcdn %>"
+}

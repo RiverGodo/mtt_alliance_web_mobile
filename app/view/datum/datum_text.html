@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/datum/datum_text.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <div class="text_top">
+      <p>新冠肺炎专题</p>
+    </div>
+    <div id="nav" class="text_tab">
+      <div class="text_tab_left">
+        <p class="tabtext" style="color:#2761CE;" onclick="changePage('/datum/datum_text')" id="tabtype1">文本资料</p>
+        <p class="tabtext" onclick="changePage('/datum/datum_ppt')" id="tabtype2">演示文稿</p>
+        <p class="tabtext" onclick="changePage('/datum/datum_video')" id="tabtype3">视频文件</p>
+      </div>
+      <img id="tab1" onclick="showTab()" src="/img/datum/tab1.png" alt="">
+      <img id="tab2" style="display: none;" onclick="showTab()" src="/img/datum/tab2.png" alt="">
+      <div onclick="showTab()" id="tabswind" class="tab_wind">
+        <div id="tabtop1" class="tab_wind_top">
+          <div id="selectype1" onclick="changePage('/datum/datum_text')" class="tab_wind_top_single">
+            <p>All</p>
+          </div>
+          <% for (let i = 0; i < getDCType1.length; i++) { %>
+            <div id="selectype1<%= getDCType1[i].id %>" onclick="changePage('/datum/datum_text?id=<%= getDCType1[i].id %>')" class="tab_wind_top_single">
+              <p><%= getDCType1[i].name %></p>
+            </div>
+          <% } %>
+        </div>
+        <div id="tabtop2" style="display: none;" class="tab_wind_top">
+          <div id="selectype2" onclick="changePage('/datum/datum_ppt')" class="tab_wind_top_single">
+            <p>All</p>
+          </div>
+          <% for (let i = 0; i < getDCType2.length; i++) { %>
+          <div id="selectype2<%= getDCType2[i].id %>" onclick="changePage('/datum/datum_ppt?id=<%= getDCType2[i].id %>')" class="tab_wind_top_single">
+            <p><%= getDCType2[i].name %> </p>
+          </div>
+          <% } %>
+        </div>
+        <div id="tabtop3" style="display: none;" class="tab_wind_top">
+          <div id="selectype3" onclick="changePage('/datum/datum_video')" class="tab_wind_top_single">
+            <p>All</p>
+          </div>
+          <% for (let i = 0; i < getDCType3.length; i++) { %>
+          <div id="selectype3<%= getDCType3[i].id %>" onclick="changePage('/datum/datum_video?id=<%= getDCType3[i].id %>')" class="tab_wind_top_single">
+            <p><%= getDCType3[i].name %> </p>
+          </div>
+          <% } %>
+        </div>
+        <div class="tab_wind_end">
+
+        </div>
+      </div>
+    </div>
+    <div class="text_list center">
+      <% for (let i = 0; i < allList.length; i++) { %>
+      <div onclick="changePage('/datum/datum_text_detial?id=<%= allList[i].id %>')" class="text_list_single">
+        <div class="text_list_single_top">
+          <p><%= allList[i].title %></p>
+        </div>
+        <div class="text_list_single_end">
+          <p><%= allList[i].origin %></p>
+          <p><%= helper.relativeTime(allList[i].create_time,'YYYY·MM·DD') %></p>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+    let tabswind = document.getElementById('tabswind')
+    document.getElementById('selectype<%=type%><%=id%>').className = "tab_wind_top_single selected"
+    function showTab() {
+      if (tabswind.style.display == "block") {
+        tabswind.style.display = "none"
+        document.getElementById('tab1').style.display = "block"
+        document.getElementById('tab2').style.display = "none"
+      } else {
+        tabswind.style.display = "block"
+        document.getElementById('tab1').style.display = "none"
+        document.getElementById('tab2').style.display = "block"
+      }
+    }
+    function changeTab(id) {
+      tabswind.style.display = "block"
+      document.getElementById('tab1').style.display = "none"
+      document.getElementById('tab2').style.display = "block"
+      for (let i = 0; i < document.getElementsByClassName('tab_wind_top').length; i++) {
+        document.getElementsByClassName('tab_wind_top')[i].style.display = "none"
+      }
+      for (let p = 0; p < document.getElementsByClassName('tabtext').length; p++) {
+        document.getElementsByClassName('tabtext')[p].style.color = "#01070d"
+      }
+      document.getElementById('tabtop' + id).style.display = "block"
+      document.getElementById('tabtype' + id).style.color = "#2761CE"
+    }
+    window.onload = function () {
+        var nav = document.getElementById('nav');
+        var tabblog = nav.offsetTop
+        var center = document.querySelector(".center");
+        document.onscroll = function () {
+            var distance = document.body.scrollTop || document.documentElement.scrollTop;
+            if (distance > tabblog) {
+                nav.className = "text_tab tabfixed";
+                //nav置顶后 需将center向下移nav的宽度，否则影响样式
+                center.style.marginTop = "1rem";
+            } else {
+                center.style.marginTop = "0";
+                nav.className = "text_tab";
+            }
+            if (distance > 0) {
+        document.getElementById('backtop').style.display = "block"  
+        document.getElementById('backmenu').style.display = "block"  
+    } else {
+        document.getElementById('backtop').style.display = "none"  
+        document.getElementById('backmenu').style.display = "none"  
+    }
+        };
+    }
+  </script>
+</body>
+
+</html>

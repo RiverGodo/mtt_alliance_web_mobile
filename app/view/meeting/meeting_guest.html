@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/meeting/meeting_guest.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="meeting_guest">
+        <div class="meeting_guest_top">
+            <div class="block"></div>
+            <p>嘉宾简介</p>
+        </div>
+        <div class="meeting_guest_middle">
+            <% if(guestInfo.head_img){ %>
+                <img src="<%= guestInfo.head_img %> " alt="">
+            <% }else{ %>
+                <img src="/img/meeting/defult_headimg.png" alt="">
+            <% } %>
+            <div class="meeting_guest_middle_right">
+                <p class="name"><%= guestInfo.name %> </p>
+                <p class="title"><%= guestInfo.short_describe %> </p>
+            </div>
+        </div>
+        <div class="meeting_guest_desc">
+            <%- guestInfo.describe %> 
+        </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+</body>
+
+</html>

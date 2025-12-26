@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>医学人才培养联盟</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/characteristic/column.css">
+  <script src="/js/rem.js"></script>
+  <script src="/js/utils.js"></script>
+</head>
+
+<body>
+  <% include ../component/common_header.html %>
+  <section class="talent_wrapper">
+    <header class="index_module_header">
+      <div class="index_module_header_title">
+        <img src="/img/characteristic/column.png" alt=""> &nbsp; 特色专栏
+      </div>
+    </header>
+    <div class="talent_main">
+      <div class="talent_main_item">
+        <div onclick="changePage('/characteristic/doctor')" class="bg">
+          <img class="bg_img" src="/img/characteristic/bg1.png" alt="">
+          <span class="title">乡村医生研究所&nbsp;
+            <img class="in" src="/img/characteristic/in.png" alt="">
+          </span>
+        </div>
+      </div>
+      <div onclick="toggleToDoMask()" class="talent_main_item">
+        <div class="bg">
+          <img class="bg_img" src="/img/characteristic/bg2.png" alt="">
+          <img class="img_lock" src="/img/characteristic/lock.png" alt="">
+          <span class="title">健康咨询&nbsp;
+            <!-- <img class="in" src="/img/characteristic/in.png" alt=""> -->
+          </span>
+
+        </div>
+
+      </div>
+      <div onclick="toggleToDoMask()" class="talent_main_item">
+        <div class="bg">
+          <img class="bg_img" src="/img/characteristic/bg3.png" alt="">
+          <img class="img_lock" src="/img/characteristic/lock.png" alt="">
+          <span class="title">学科科室共建&nbsp;
+            <!-- <img class="in" src="/img/characteristic/in.png" alt=""> -->
+          </span>
+
+        </div>
+
+      </div>
+      <div onclick="toggleToDoMask()" class="talent_main_item">
+        <div class="bg">
+          <img class="bg_img" src="/img/characteristic/bg4.png" alt="">
+          <img class="img_lock" src="/img/characteristic/lock.png" alt="">
+          <span class="title">住院医师规范化培训&nbsp;
+            <!-- <img class="in" src="/img/characteristic/in.png" alt=""> -->
+          </span>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <% include ../component/common_side_menu.html %>
+  <% include ../component/common_footer.html %>
+  <% include ../component/common_copyright.html %>
+  <% include ../component/common_js.html %>
+  <script>
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+@import "../variable.less";
+.search{
+    .search_top{
+        text-align: center;
+        .m-t(42);
+        img{
+            .w(77);
+            .h(77);
+            margin: 0 auto;
+            text-align: center;
+            .m-b(15);
+        }
+        .title{
+            .fs(20);
+            font-weight:500;
+            color:rgba(1,7,13,1);
+            .l-h(31);
+            .m-b(8);
+        }
+        .desc{
+            .fs(10);
+            color:rgba(1,7,13,1);
+            .l-h(14)
+        }
+    }
+    .search_middle{
+        margin: 0 auto;
+        .m-l(23);
+        .m-r(23);
+        display: flex;
+        align-items: center;
+        .m-t(46);
+        .search_middle_left{
+            .w(314);
+            .h(46);
+            width:314px;
+            background:rgba(255,255,255,1);
+            border-radius:4px 0px 0px 4px;
+            border:1px solid rgba(150,173,196,1);
+            input{
+                border: none;
+                .l-h(46);
+                .p-l(19);
+                .fs(16);
+                color:rgba(0,0,0,1);
+                height: 83%;
+                width: 92%;
+            }
+        }
+        .search_middle_right{
+            .h(46);
+            .w(54);
+            background:rgba(39,97,206,1);
+            border-radius:0px 4px 4px 0px;
+            border:1px solid rgba(39,97,206,1);
+            position: relative;
+            img{
+                .w(29);
+                .h(29);
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto;
+            }
+        }
+    }
+    .search_end{
+        .m-l(23);
+        .m-r(23);
+        .m-t(46);
+        .search_end_top{
+            display: flex;
+            align-items: center;
+            .m-b(23);
+            img{
+                .w(19);
+                .h(19);
+                .m-r(6);
+            }
+            p{
+                .fs(13);
+                font-weight:500;
+                color:rgba(224,32,32,1);
+                .l-h(20);
+            }
+        }
+        .search_end_end{
+            display: flex;
+            align-items: center;
+            // justify-content: space-between;
+            flex-wrap: wrap;
+            p{
+                .fs(13);
+                color:rgba(1,7,13,1);
+                .l-h(20);
+                .m-b(15);
+                .m-r(7);
+                .m-l(7);
+            }
+        }
+    }
+}
